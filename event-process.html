@@ -1,0 +1,1386 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>校园活动流程</title>
+  <style>
+    :root {
+      --bg: #f6f8f7;
+      --panel: #ffffff;
+      --ink: #17211f;
+      --muted: #65716d;
+      --line: #d9e2df;
+      --dark: #0e1716;
+      --green: #0c7269;
+      --green-soft: #e5f3f0;
+      --blue: #315f95;
+      --blue-soft: #e8f1f8;
+      --coral: #c85a43;
+      --coral-soft: #fff0ec;
+      --amber: #b7791f;
+      --amber-soft: #fff3d8;
+      --gray-soft: #eef2f0;
+      --shadow: 0 18px 46px rgba(20, 31, 28, 0.09);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, #f8faf9 0%, var(--bg) 240px, #eef3f1 100%);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li {
+      margin: 4px 0;
+    }
+
+    .topbar {
+      background:
+        linear-gradient(135deg, #0d1716 0%, #122320 54%, #153f3b 100%);
+      color: #fff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 30px 22px 24px;
+    }
+
+    .kicker {
+      color: #b9c6c1;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 900px;
+      margin-top: 12px;
+      color: #d8e1dd;
+      font-size: 16px;
+    }
+
+    .freeze-strip {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .freeze-item {
+      min-height: 96px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.075);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .freeze-item strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 17px;
+    }
+
+    .freeze-item span {
+      color: #cbd8d3;
+      font-size: 13px;
+    }
+
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(244, 246, 244, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .sticky-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 8px 22px 9px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(126px, 1fr));
+      gap: 7px;
+      overflow: visible;
+      padding: 0;
+    }
+
+    .flow a {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      align-items: center;
+      min-height: 38px;
+      gap: 7px;
+      padding: 6px 8px;
+      border: 1px solid rgba(12, 114, 105, 0.18);
+      border-radius: var(--radius);
+      background: var(--panel);
+      color: var(--muted);
+      box-shadow: 0 8px 18px rgba(25, 33, 31, 0.05);
+      transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+    }
+
+    .flow a:hover,
+    .flow a.active {
+      border-color: var(--green);
+      background: var(--green-soft);
+      color: var(--ink);
+    }
+
+    .flow-num {
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--gray-soft);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .flow a.active .flow-num {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .flow-label {
+      display: block;
+      line-height: 1.25;
+      white-space: normal;
+      word-break: keep-all;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 24px 22px 64px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 22px 0 14px;
+    }
+
+    h2 {
+      font-size: 25px;
+      letter-spacing: 0;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: right;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid rgba(12, 114, 105, 0.14);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-head {
+      padding: 15px 16px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f7faf9 100%);
+    }
+
+    .panel-head strong {
+      display: block;
+      font-size: 17px;
+    }
+
+    .panel-head span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .panel-body {
+      padding: 16px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(118px, 1fr));
+      gap: 10px;
+      position: relative;
+    }
+
+    .milestone {
+      min-height: 128px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 8px 18px rgba(20, 31, 28, 0.04);
+      position: relative;
+    }
+
+    .milestone::after {
+      content: "";
+      position: absolute;
+      top: 30px;
+      right: -11px;
+      width: 12px;
+      height: 2px;
+      background: var(--green);
+    }
+
+    .milestone:last-child::after {
+      display: none;
+    }
+
+    .milestone strong {
+      display: block;
+      color: var(--green);
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .milestone span {
+      display: block;
+      color: #303835;
+      font-size: 13px;
+    }
+
+    .route-map {
+      display: grid;
+      gap: 10px;
+    }
+
+    .campus-map {
+      position: relative;
+      margin-bottom: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .campus-map::before {
+      display: none;
+    }
+
+    .campus-route-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .route-node {
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      border-left: 4px solid var(--green);
+      box-shadow: 0 8px 18px rgba(20, 31, 28, 0.04);
+    }
+
+    .route-node strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .route-node span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .route-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .route-arrow {
+      color: var(--green);
+      font-weight: 800;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .lane-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .lane {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .lane h3 {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      font-size: 16px;
+      background: #fbfcfb;
+    }
+
+    .lane p {
+      padding: 12px 14px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .lane-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 12px 14px 14px;
+    }
+
+    .lane-steps a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .process-map {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .phase {
+      min-height: 190px;
+      border: 1px solid rgba(12, 114, 105, 0.14);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .phase-title {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      background: var(--blue-soft);
+      color: #17476a;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .phase:nth-child(2) .phase-title {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .phase:nth-child(3) .phase-title {
+      background: var(--amber-soft);
+      color: #7a4d0f;
+    }
+
+    .phase:nth-child(4) .phase-title {
+      background: var(--coral-soft);
+      color: #8c3c2a;
+    }
+
+    .phase-node {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 8px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      align-items: center;
+    }
+
+    .phase-node:last-child {
+      border-bottom: 0;
+    }
+
+    .phase-node b {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      font-size: 12px;
+    }
+
+    .phase-node span {
+      font-size: 13px;
+      color: #303835;
+      line-height: 1.3;
+    }
+
+    .stage-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .stage {
+      scroll-margin-top: 96px;
+      border: 1px solid rgba(12, 114, 105, 0.14);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 10px 24px rgba(20, 31, 28, 0.055);
+      overflow: hidden;
+    }
+
+    .stage-head {
+      display: grid;
+      grid-template-columns: auto 1fr minmax(140px, auto);
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f7faf9 100%);
+    }
+
+    .stage-index {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .stage h3 {
+      font-size: 17px;
+    }
+
+    .stage-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .stage-meta span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 2px 7px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+    }
+
+    .owner {
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: right;
+    }
+
+    .stage-body {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .goal-box {
+      padding: 14px;
+      border-left: 4px solid var(--green);
+      background: #f8fbfa;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-bottom: 14px;
+    }
+
+    .goal-box strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+      color: var(--green);
+    }
+
+    .goal-box p {
+      color: #303835;
+      font-size: 14px;
+    }
+
+    .mini-flow {
+      display: grid;
+      gap: 8px;
+    }
+
+    .mini-step {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      position: relative;
+    }
+
+    .mini-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 24px;
+      bottom: -9px;
+      width: 2px;
+      height: 8px;
+      background: var(--green);
+    }
+
+    .mini-step b {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 12px;
+    }
+
+    .mini-step span {
+      font-size: 14px;
+      color: #303835;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .detail-block {
+      border-top: 3px solid var(--green);
+      padding-top: 9px;
+    }
+
+    .detail-block strong {
+      display: block;
+      color: var(--green);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .detail-block li {
+      font-size: 14px;
+      color: #303835;
+    }
+
+    .detail-block.wide {
+      grid-column: 1 / -1;
+    }
+
+    .notice-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .notice {
+      padding: 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: #fbfcfb;
+    }
+
+    .notice.risk {
+      border-color: #efc3ba;
+      background: var(--coral-soft);
+    }
+
+    .notice.backup {
+      border-color: #efd18a;
+      background: var(--amber-soft);
+    }
+
+    .notice strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 13px;
+    }
+
+    .notice p {
+      color: #3f4845;
+      font-size: 14px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 860px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      background: #eef4f2;
+      color: #24302d;
+      font-size: 13px;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .material-table {
+      min-width: 760px;
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      padding: 16px;
+      border-left: 4px solid var(--green);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: var(--panel);
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px) {
+      .freeze-strip,
+      .overview-grid,
+      .lane-grid,
+      .process-map,
+      .stage-body,
+      .notice-row {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .milestone::after {
+        left: 24px;
+        right: auto;
+        top: auto;
+        bottom: -11px;
+        width: 2px;
+        height: 12px;
+      }
+
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stage-head {
+        grid-template-columns: auto 1fr auto;
+      }
+
+      .owner {
+        grid-column: 1 / -1;
+        justify-self: start;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner,
+      .sticky-inner,
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .route-split {
+        grid-template-columns: 1fr;
+      }
+
+      .campus-map {
+        min-height: 300px;
+      }
+
+      .building.seqing {
+        font-size: 18px;
+      }
+
+      .building.future,
+      .building.qunxian {
+        font-size: 16px;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .hint {
+        margin-top: 4px;
+        text-align: left;
+      }
+    }
+
+    @media print {
+      .sticky-nav {
+        position: static;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .panel,
+      .phase,
+      .stage,
+      .lane,
+      .table-wrap {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <p class="kicker">Event Production System / 主轴 v3.0</p>
+      <h1>校园活动流程</h1>
+      <p class="subtitle">这不是一张活动安排表，而是一条可冻结、可交接、可验收、可降级、可复盘的校园活动生产线。业务模块可以替换，主轴必须完整跑完。</p>
+      <div class="freeze-strip" aria-label="关键冻结点">
+        <div class="freeze-item"><strong>T-21 / T-14</strong><span>立项：确定目标、人群、主题、风格、预算、人数上限。</span></div>
+        <div class="freeze-item"><strong>T-7</strong><span>方案冻结：主流程、物料规格、场地规则、邀约口径定稿。</span></div>
+        <div class="freeze-item"><strong>T-3</strong><span>执行冻结：物料、人员、动线、Kit、应急药箱基本到位。</span></div>
+        <div class="freeze-item"><strong>T-24h</strong><span>名单锁定：最终来访表确认，只允许例外补登。</span></div>
+        <div class="freeze-item"><strong>D+1 / D+2</strong><span>跟进复盘：分层触达，沉淀下次活动修正项。</span></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sticky-nav" aria-label="活动主轴导航">
+    <div class="sticky-inner">
+      <div class="flow">
+        <a href="#stage-0"><span class="flow-num">0</span><span class="flow-label">策划确认</span></a>
+        <a href="#stage-1"><span class="flow-num">1</span><span class="flow-label">物料 / 场地 / 安保</span></a>
+        <a href="#stage-2"><span class="flow-num">2</span><span class="flow-label">邀约锁名</span></a>
+        <a href="#stage-3"><span class="flow-num">3</span><span class="flow-label">入口接待</span></a>
+        <a href="#stage-4"><span class="flow-num">4</span><span class="flow-label">签到贴纸</span></a>
+        <a href="#stage-5"><span class="flow-num">5</span><span class="flow-label">休息等待</span></a>
+        <a href="#stage-6"><span class="flow-num">6</span><span class="flow-label">开场带场</span></a>
+        <a href="#stage-7"><span class="flow-num">7</span><span class="flow-label">宣讲</span></a>
+        <a href="#stage-8"><span class="flow-num">8</span><span class="flow-label">模块</span></a>
+        <a href="#stage-9"><span class="flow-num">9</span><span class="flow-label">咨询转化</span></a>
+        <a href="#stage-10"><span class="flow-num">10</span><span class="flow-label">离场</span></a>
+        <a href="#stage-11"><span class="flow-num">11</span><span class="flow-label">跟进</span></a>
+        <a href="#stage-12"><span class="flow-num">12</span><span class="flow-label">复盘</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section aria-labelledby="overview-title">
+      <div class="section-head">
+        <h2 id="overview-title">一眼看懂</h2>
+        <span class="hint">先看时间、空间和角色，再进入节点 SOP</span>
+      </div>
+
+      <div class="overview-grid">
+        <article class="panel">
+          <div class="panel-head">
+            <strong>时间冻结线</strong>
+            <span>每个时间点都要有明确交付物，避免临时救火。</span>
+          </div>
+          <div class="panel-body">
+            <div class="timeline">
+              <div class="milestone"><strong>T-21 / T-14</strong><span>立项，确定活动为什么做、给谁做、要做到什么结果。</span></div>
+              <div class="milestone"><strong>T-7</strong><span>方案冻结，主题风格、流程、物料规格、邀约口径定稿。</span></div>
+              <div class="milestone"><strong>T-3</strong><span>执行冻结，物料、人员、动线、活动 Kit、应急药箱到位。</span></div>
+              <div class="milestone"><strong>T-24h</strong><span>名单锁定，生成内部确认表、签到表、车牌提交表。</span></div>
+              <div class="milestone"><strong>D-day</strong><span>按入口、签到、休息、宣讲、模块、咨询、离场执行。</span></div>
+              <div class="milestone"><strong>D+1 / D+2</strong><span>分层跟进并复盘，把问题反写进下一场模板。</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <strong>现场动线图</strong>
+            <span>家庭不需要自己找路，每一步都有人接住。</span>
+          </div>
+          <div class="panel-body">
+            <div class="campus-map" aria-label="校园活动现场动线图">
+              <img class="campus-route-image" src="campus-route-map.png" alt="校园活动现场动线图：来访入口在出入闸机，进入世青楼一楼大堂签到休息，后续前往宣讲、参观和群贤楼阅览室咨询。">
+            </div>
+            <div class="route-map">
+              <div class="route-node"><strong>出入闸机</strong><span>这里是来访入口。董老师在闸机附近接待，活动海报和接待口径让家庭确认走对地方。</span></div>
+              <div class="route-arrow">↓</div>
+              <div class="route-node"><strong>世青楼门口台阶 → 1 楼大堂</strong><span>进门左侧签到，右侧休息；保护艺术品，不影响办公动线。</span></div>
+              <div class="route-arrow">↓</div>
+              <div class="route-split">
+                <div class="route-node"><strong>20 人内</strong><span>去群贤楼阅览室宣讲，咨询也在阅览室。</span></div>
+                <div class="route-node"><strong>超过 20 人</strong><span>去世青楼 2 楼宣讲，咨询转到群贤楼阅览室。</span></div>
+              </div>
+              <div class="route-arrow">↓</div>
+              <div class="route-node"><strong>模块 → 咨询 → 离场</strong><span>模块老师交付线索，董老师承接咨询转化并完成离场收口。</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="lane-grid" aria-label="角色泳道">
+        <article class="lane">
+          <h3>林老师：方案策划</h3>
+          <p>负责活动方案策划，并配合物料制作。</p>
+          <div class="lane-steps"><a href="#stage-0">0 策划</a><a href="#stage-1">1 物料配合</a></div>
+        </article>
+        <article class="lane">
+          <h3>董老师：主轴执行</h3>
+          <p>负责前期邀约、接待、物料主责、咨询转化和离场。</p>
+          <div class="lane-steps"><a href="#stage-1">1 物料主责</a><a href="#stage-2">2 邀约</a><a href="#stage-3">3 接待</a><a href="#stage-9">9 咨询</a><a href="#stage-10">10 离场</a></div>
+        </article>
+        <article class="lane">
+          <h3>杨老师 / 骆老师：确认与协助</h3>
+          <p>杨老师参与方案确认；骆老师协助活动物料与现场准备。</p>
+          <div class="lane-steps"><a href="#stage-0">0 方案确认</a><a href="#stage-1">1 物料协助</a></div>
+        </article>
+        <article class="lane">
+          <h3>模块老师：内容交付</h3>
+          <p>负责 CREST、BTEC、中考后升学等业务模块，不改变主轴。</p>
+          <div class="lane-steps"><a href="#stage-7">7 宣讲</a><a href="#stage-8">8 模块</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="map-title">
+      <div class="section-head">
+        <h2 id="map-title">主流程地图</h2>
+        <span class="hint">把 13 个节点放回生产线，而不是散落成清单</span>
+      </div>
+      <div class="process-map">
+        <article class="phase">
+          <div class="phase-title">准备期：先把活动做成项目</div>
+          <a class="phase-node" href="#stage-0"><b>0</b><span>策划确认：目标、主题、风格、预算</span></a>
+          <a class="phase-node" href="#stage-1"><b>1</b><span>物料 / 场地 / 安保：空间、物料、Kit、应急药箱</span></a>
+          <a class="phase-node" href="#stage-2"><b>2</b><span>邀约锁名：名单、车牌、提醒海报</span></a>
+        </article>
+        <article class="phase">
+          <div class="phase-title">到访期：家庭进校后被接住</div>
+          <a class="phase-node" href="#stage-3"><b>3</b><span>入口接待：闸机识别，带到签到区</span></a>
+          <a class="phase-node" href="#stage-4"><b>4</b><span>签到贴纸：纸质签到，背胶贴纸</span></a>
+          <a class="phase-node" href="#stage-5"><b>5</b><span>休息等待：大堂左签到、右休息</span></a>
+        </article>
+        <article class="phase">
+          <div class="phase-title">内容期：从开场进入业务内容</div>
+          <a class="phase-node" href="#stage-6"><b>6</b><span>开场带场：从休息区进入正式活动</span></a>
+          <a class="phase-node" href="#stage-7"><b>7</b><span>宣讲：讲清背景和价值</span></a>
+          <a class="phase-node" href="#stage-8"><b>8</b><span>模块：CREST / BTEC / 升学等插件</span></a>
+        </article>
+        <article class="phase">
+          <div class="phase-title">转化期：把体验变成下一步</div>
+          <a class="phase-node" href="#stage-9"><b>9</b><span>咨询转化：记录问题、分级、预约</span></a>
+          <a class="phase-node" href="#stage-10"><b>10</b><span>离场：资料交付、路线引导、记录确认</span></a>
+        </article>
+        <article class="phase">
+          <div class="phase-title">后续期：活动不是结束在散场</div>
+          <a class="phase-node" href="#stage-11"><b>11</b><span>跟进：D+0 到 D+2 分层触达</span></a>
+          <a class="phase-node" href="#stage-12"><b>12</b><span>复盘：数据、问题、模板更新</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="sop-title">
+      <div class="section-head">
+        <h2 id="sop-title">节点 SOP</h2>
+        <span class="hint">顶部节点可直接点击定位；下方按主轴顺序完整呈现</span>
+      </div>
+      <div id="stage-list" class="stage-list"></div>
+    </section>
+
+    <section aria-labelledby="template-title">
+      <div class="section-head">
+        <h2 id="template-title">记录模板字段</h2>
+        <span class="hint">后续可以拆成可打印表格或在线表单</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>表单</th>
+              <th>核心字段</th>
+              <th>用途</th>
+              <th>负责人</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>内部报名确认表</td>
+              <td>家庭编号、学生姓名、年级、家长姓名、电话、到访人数、是否开车、车牌号、关注方向、负责老师、确认状态、备注</td>
+              <td>锁定名单、安保放行、签到准备、咨询分配</td>
+              <td>董老师</td>
+            </tr>
+            <tr>
+              <td>物料规格与制作表</td>
+              <td>物料名称、尺寸/规格、数量、用途/点位、负责人、到位状态、验收人</td>
+              <td>保证物料不是临时想起来，而是在活动开始前统一到位</td>
+              <td>董老师主责；林老师配合制作；骆老师协助</td>
+            </tr>
+            <tr>
+              <td>活动 Kit 清点表</td>
+              <td>物品名称、标准数量、现有数量、缺口、补货人、补货时间、归还状态</td>
+              <td>让签字笔、胶带、剪刀、插线板等现场基础物资常备化</td>
+              <td>董老师主责；骆老师协助</td>
+            </tr>
+            <tr>
+              <td>应急药箱检查表</td>
+              <td>物品名称、数量、有效期、检查人、缺口、补充状态</td>
+              <td>只用于现场轻微突发情况的基础应急，不替代专业医疗处理</td>
+              <td>董老师清点；现场按应急情况处理</td>
+            </tr>
+            <tr>
+              <td>咨询记录表</td>
+              <td>家庭编号、学生姓名、咨询老师、主要问题、关注产品/路径、预算/时间节点、意向等级、下一步动作、预约时间、备注</td>
+              <td>承接转化、分层跟进、复盘转化效率</td>
+              <td>董老师</td>
+            </tr>
+            <tr>
+              <td>复盘报告</td>
+              <td>报名数、到访数、到访率、咨询数、A/B/C/D意向数、主要问题、现场风险、下次改进项、负责人、截止点</td>
+              <td>让下一场活动继承经验，而不是重新摸索</td>
+              <td>林老师整理；董老师、杨老师确认</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="footer-note">
+      定版原则：页面先帮助团队理解“怎么跑”，再帮助负责人检查“是否做到”。宣讲和业务模块后续作为子系统接入，不反向改变主轴。
+    </div>
+  </main>
+
+  <script>
+    const stages = [
+      {
+        id: 0,
+        title: "策划方案确认",
+        owner: "林老师策划；董老师、杨老师确认",
+        deadline: "标准 T-14；新活动 T-21 到 T-14；最晚 T-7",
+        duration: "活动前",
+        location: "项目准备",
+        goal: "先把活动定义成一个项目，明确为什么做、给谁做、做到什么结果。",
+        flow: ["林老师确认目标家庭与业务目标", "林老师确定主题、风格、主视觉方向", "确认人数上限、预算和场地策略", "董老师、杨老师共同确认后进入邀约"],
+        input: ["活动目标", "目标家庭画像", "可用日期、预算、人数上限", "拟使用模块方向"],
+        actions: ["确定活动主题和风格", "确定主视觉方向", "确认主轴流程和模块接口", "确认场地使用规则"],
+        output: ["活动方案", "主题与风格说明", "人数上限", "预算范围", "董老师、杨老师确认记录"],
+        acceptance: ["主题、风格、目标人群已明确", "董老师、杨老师已确认方案可执行", "物料制作可以按统一视觉启动", "所有负责人知道活动为什么做"],
+        risk: "主题和风格未定，后续海报、易拉宝、投屏、提醒图会各做各的，现场没有一致性。",
+        fallback: "若 T-7 仍未定稿，不进入正式邀约；只允许做小范围内部测试或低配活动。",
+        records: "活动立项表、项目主控表、方案确认记录。"
+      },
+      {
+        id: 1,
+        title: "物料、场地、安保准备",
+        owner: "董老师主责；林老师配合制作；骆老师协助",
+        deadline: "T-7 清单定稿；T-3 基本到位；T-1 最终检查",
+        duration: "活动前",
+        location: "出入闸机、世青楼 1F / 2F、群贤楼阅览室",
+        goal: "把现场变成可运行的空间：来得进、找得到、坐得下、看得懂、出问题有基础兜底。",
+        flow: ["董老师按主题生成物料规格与制作表", "林老师配合制作活动视觉物料", "骆老师协助现场物料和点位准备", "确认世青楼 1F 大堂和宣讲空间布置", "清点活动 Kit 与应急药箱", "向保安提交来访名单和车牌"],
+        input: ["主题与风格", "锁定场地", "预估人数", "报名表字段", "车辆进入规则"],
+        actions: ["确认海报、易拉宝、流程牌、桌牌", "准备大电视投屏材料", "准备老师工牌并确认佩戴要求", "准备活动 Kit 基础物料箱和应急药箱", "准备保安车牌和来访名单模板", "确认世青楼1楼大堂动线和保护区域"],
+        output: ["物料规格与制作表", "老师工牌清点记录", "活动 Kit 清点表", "应急药箱检查表", "场地布置方案", "安保提交模板", "现场点位安排"],
+        acceptance: ["每项物料有尺寸、数量、用途/点位和负责人", "所有物料在活动开始前到位并完成验收", "所有现场老师佩戴工牌，正面朝外且清晰可见", "活动 Kit 按清单补齐并放在签到区附近", "应急药箱完成清点，位置明确", "保安知道来访车辆和家庭", "动线不影响世青楼正常工作"],
+        risk: "世青楼1楼大堂有易碎艺术品；现场动线若设计不好，会影响正常办公和来访体验。应急药箱若过期或位置不清楚，突发情况会延误处理。",
+        fallback: "物料不到位时优先保留：签到表、贴纸、指示牌、流程牌、投屏、活动 Kit 和应急药箱。装饰类物料可降级为电子版。",
+        records: "物料规格与制作表、老师工牌清点记录、活动 Kit 清点表、应急药箱检查表、场地动线图、安保来访名单。",
+        custom: "materials"
+      },
+      {
+        id: 2,
+        title: "邀约报名与名单锁定",
+        owner: "董老师",
+        deadline: "T-7 启动邀约；T-3 初版名单；T-24h 最终锁定",
+        duration: "活动前",
+        location: "团队内部表单",
+        goal: "当天到底谁来，必须在活动前 24 小时被团队内部同一张表确认。",
+        flow: ["启动邀约并收集报名", "生成家庭编号和负责老师归属", "T-24h 锁定最终名单", "发送活动前一天提醒海报"],
+        input: ["活动方案", "报名入口", "邀约口径", "车牌收集字段"],
+        actions: ["维护内部确定表单", "锁定参与家庭", "提交车牌和来访名单给保安", "活动前一天发送独立活动海报提醒"],
+        output: ["锁定名单", "家庭编号", "负责老师归属", "提醒海报发送记录"],
+        acceptance: ["家庭、学生、车牌、到访人数信息完整", "团队内部都使用同一张确认表", "名单锁定后不随意变更"],
+        risk: "当天临时加人会影响座位、资料、贴纸、咨询排班和保安放行。",
+        fallback: "临时家庭只走补登流程，并标记为“例外到访”；不重排主流程。",
+        records: "内部报名确认表、车牌提交表、活动提醒发送记录。"
+      },
+      {
+        id: 3,
+        title: "出入闸机接待",
+        owner: "董老师",
+        deadline: "T-2 确认接待点、路线、入口海报",
+        duration: "10 到 15 分钟",
+        location: "出入闸机到世青楼 1 楼大堂",
+        goal: "让家庭一进校就被接住，确认自己走对活动，并被自然带到签到区。",
+        flow: ["出入闸机和门卫岗亭附近放置活动海报", "董老师确认家庭身份和活动名称", "从出入闸机引导至世青楼门口台阶", "进入世青楼1楼大堂并交接到签到点"],
+        input: ["锁定名单", "入口海报", "接待点位", "出入闸机到世青楼路线"],
+        actions: ["老师佩戴工牌并在出入闸机附近站位", "出入闸机和门卫岗亭附近放足够活动海报", "接到家庭后确认活动名称", "引导通过出入闸机并到达世青楼门口台阶", "进入世青楼1楼大堂，交接给签到区"],
+        output: ["家庭顺利进入签到区", "迟到或异常家庭被标记"],
+        acceptance: ["接待老师工牌清晰可见", "来访家庭不需要自己找楼", "出入闸机处能明显识别活动", "接待和签到有明确交接"],
+        risk: "出入闸机附近海报不足或接待点不清晰，家庭会怀疑自己是否走对地方。",
+        fallback: "人手不足时减少接待点，增加路线牌；机动老师补位。",
+        records: "现场异常记录、迟到记录。"
+      },
+      {
+        id: 4,
+        title: "签到与贴纸识别",
+        owner: "董老师",
+        deadline: "T-2 准备表格；T-1 测试便携背胶贴纸打印机",
+        duration: "10 到 15 分钟",
+        location: "世青楼 1 楼大堂进门左侧",
+        goal: "把到访家庭变成可识别、可记录、可跟进的对象。",
+        flow: ["核对家庭编号和姓名", "纸质签到并记录到场时间", "打印家长和学生背胶贴纸", "引导至右侧休息区"],
+        input: ["纸质签到表", "便携背胶贴纸打印机", "备用手写姓名贴", "家庭编号规则"],
+        actions: ["签到老师佩戴工牌并保持可识别", "核对家庭编号和姓名", "记录到访时间和到访人数", "打印家长和学生贴纸", "引导至右侧休息区"],
+        output: ["纸质签到记录", "家长贴纸", "学生贴纸", "临时补登备注"],
+        acceptance: ["签到老师工牌清晰可见", "每个家庭都有签到记录", "每位家长和学生都有显眼识别", "贴纸不包含手机号、原学校等敏感信息"],
+        risk: "打印设备失效、贴纸字段过多、签到区拥堵，都会拖慢第一印象。",
+        fallback: "打印机故障时立刻切换手写姓名贴；名单外家庭走临时补登。",
+        records: "纸质签到表、临时补登表。",
+        custom: "labels"
+      },
+      {
+        id: 5,
+        title: "休息区等待",
+        owner: "董老师",
+        deadline: "T-1 完成布置",
+        duration: "10 到 20 分钟",
+        location: "世青楼 1 楼大堂进门右侧",
+        goal: "让家庭等候时不冷场、不堵路，并提前进入活动氛围。",
+        flow: ["大电视切换为活动内容", "右侧布置座位、水和展示物料", "控制家庭停留区域", "保护艺术品和办公动线"],
+        input: ["活动投屏材料", "座位安排", "海报和易拉宝", "艺术品保护范围"],
+        actions: ["大电视按活动内容更换材料", "大堂设置活动氛围", "引导家庭在右侧休息", "保护易碎艺术品，维持通行路线"],
+        output: ["候场秩序", "活动氛围", "不影响世青楼工作动线"],
+        acceptance: ["休息区与签到区距离近但不互相堵塞", "投屏内容与活动主题一致", "大堂人员不围堵办公通道"],
+        risk: "大堂艺术品易碎；休息区如果越界，会影响世青楼正常工作。",
+        fallback: "若大堂拥挤，减少展示点，保留座位、水、投屏和核心海报。",
+        records: "现场点位图、物料摆放检查表。"
+      },
+      {
+        id: 6,
+        title: "开场带场",
+        owner: "董老师现场带场；迟到家庭由机动人员协助",
+        deadline: "T-2 走场；T-1 确认主持词和带场路线",
+        duration: "5 到 8 分钟",
+        location: "从大堂到宣讲区",
+        goal: "把等待状态切换成正式活动状态，并让家庭知道接下来怎么走。",
+        flow: ["董老师提醒即将开始", "董老师集合家长和学生", "董老师带队去宣讲区", "机动人员留守处理迟到家庭"],
+        input: ["宣讲地点", "带场路线", "主持词", "迟到家庭处理规则"],
+        actions: ["带场老师佩戴工牌并保持可识别", "董老师在休息区提醒即将开始", "董老师集合家长和学生", "董老师引导前往宣讲区", "机动人员留守签到区处理迟到家庭"],
+        output: ["家庭进入正式活动状态", "宣讲准时开始", "迟到家庭不打断开场"],
+        acceptance: ["带场老师工牌清晰可见", "从大堂到宣讲区无人掉队", "开场讲清流程、洗手间、安全、拍照说明", "讲清宣讲、模块、咨询的关系"],
+        risk: "如果没人带场，家庭会在休息区自然分散，开场时间容易失控。",
+        fallback: "迟到家庭多时，由机动人员分批带入，并安排在靠后位置入座。",
+        records: "走场确认表、主持词版本。"
+      },
+      {
+        id: 7,
+        title: "宣讲",
+        owner: "待定",
+        deadline: "宣讲子方案待定；场地按人数决定",
+        duration: "待定",
+        location: "20人内群贤楼阅览室；超过20人世青楼2楼",
+        goal: "让家庭形成共同语境，理解活动主题、学校价值和后续模块为什么重要。",
+        flow: ["开场承接活动主题", "讲清家庭痛点和学校价值", "把内容导向模块体验", "预告咨询承接方式"],
+        input: ["宣讲主题", "宣讲人", "PPT", "人数确认", "场地设备"],
+        actions: ["按主题讲清家庭为什么需要听", "讲清学校或项目的核心价值", "20人以上启用世青楼2楼时，提前完成空间装饰", "自然导向后续模块", "预告咨询承接方式"],
+        output: ["家庭形成基本认知", "进入模块前的共同语境", "可咨询的问题被激活"],
+        acceptance: ["时间不拖延", "信息不泛泛而谈", "和后续模块有清晰连接", "2楼宣讲区有清楚主视觉、活动信息、投屏和座位秩序"],
+        risk: "宣讲内容如果和后续模块脱节，家庭会听完但不知道下一步为什么要继续参与。",
+        fallback: "若部分装饰物料不到位，优先保留主视觉投屏、入口指示、流程牌和座位秩序；PPT故障时用口播大纲。",
+        records: "宣讲子方案、PPT版本、2楼装饰检查表、问题收集表。",
+        custom: "decor"
+      },
+      {
+        id: 8,
+        title: "模块",
+        owner: "模块老师",
+        deadline: "随具体模块单独冻结",
+        duration: "待定",
+        location: "根据模块决定",
+        goal: "把 CREST、BTEC、中考后升学等业务内容作为插件接入，但不改变主轴。",
+        flow: ["模块老师接过场", "按模块 SOP 执行", "形成体验结果或问题线索", "交给咨询环节承接"],
+        input: ["模块名称", "适用人群", "模块老师", "场地和物料", "承接咨询点"],
+        actions: ["按模块 SOP 执行", "不改变主轴顺序", "结束时产出可被咨询承接的结果", "将观察或问题交给董老师"],
+        output: ["模块体验结果", "家庭问题", "学生表现或兴趣线索", "咨询承接点"],
+        acceptance: ["模块按时结束", "模块结果能被家长理解", "能自然进入咨询转化"],
+        risk: "模块老师若只关注内容，不交付咨询线索，主轴会在模块结束后断流。",
+        fallback: "模块设备或老师异常时，启用低配版讲解、案例、纸笔任务或问答。",
+        records: "模块 SOP、模块反馈表、学生观察表。"
+      },
+      {
+        id: 9,
+        title: "咨询转化",
+        owner: "董老师",
+        deadline: "T-2 确认咨询区；T-1 确认记录表和分工",
+        duration: "20 到 40 分钟",
+        location: "群贤楼阅览室宣讲则原地咨询；世青楼2楼宣讲则转到群贤楼阅览室",
+        goal: "把家庭问题、意向等级和下一步动作记录下来，让活动产生可跟进结果。",
+        flow: ["根据模块线索引导咨询", "按家庭编号记录问题", "判断 A/B/C/D 意向等级", "现场约定下一步动作"],
+        input: ["咨询区安排", "咨询记录表", "意向等级规则", "模块输出线索"],
+        actions: ["咨询老师佩戴工牌并保持可识别", "按家庭编号记录咨询", "记录主要问题和关注路径", "判断 A/B/C/D 意向等级", "明确下一步动作和预约时间"],
+        output: ["咨询记录", "意向等级", "下一步预约", "需要补发资料清单"],
+        acceptance: ["咨询老师工牌清晰可见", "每个咨询家庭都有记录", "A类家庭必须有明确下一步", "咨询结束后董老师能继续跟进"],
+        risk: "咨询区若靠近出口，家庭容易直接离开；咨询没有记录，后续会断档。",
+        fallback: "顾问不足时先接 A 类家庭，其余家庭当场预约后续一对一。",
+        records: "咨询记录表、意向分级表。"
+      },
+      {
+        id: 10,
+        title: "离场",
+        owner: "董老师",
+        deadline: "T-1 确认资料和离场路线",
+        duration: "5 到 10 分钟",
+        location: "咨询区到离校路线",
+        goal: "让家庭有序离开，同时确保资料、后续联系和咨询记录都收口。",
+        flow: ["确认是否完成咨询", "发资料或二维码", "提醒后续谁联系、怎么联系", "引导离校并检查遗留物"],
+        input: ["资料或二维码", "停车和离校路线", "咨询记录完成情况"],
+        actions: ["确认家庭是否完成咨询", "提醒后续跟进方式", "发资料或二维码", "感谢到访并引导离校"],
+        output: ["有序送离", "资料交付", "遗漏物品检查", "咨询记录确认"],
+        acceptance: ["家庭知道下一步谁联系、怎么联系", "高意向家庭未被直接放走", "现场无明显遗留物"],
+        risk: "离场如果没人收口，活动最后一段会变成自然散场，转化和体验都会打折。",
+        fallback: "资料不足时 D+0 补发电子版；董老师处理高意向或特殊问题。",
+        records: "离场检查表、资料补发表。"
+      },
+      {
+        id: 11,
+        title: "跟进",
+        owner: "待确认；默认董老师承接咨询后跟进",
+        deadline: "D+0 启动；D+1 重点跟进；D+2 二次触达",
+        duration: "活动后",
+        location: "微信 / 电话 / 内部表单",
+        goal: "把活动热度转成真实下一步，避免家庭离场后线索冷却。",
+        flow: ["D+0 统一感谢和资料补发", "D+1 重点跟进 A 类家庭", "D+2 触达 B/C 类家庭", "更新家庭状态"],
+        input: ["签到表", "咨询记录", "意向等级", "资料补发清单"],
+        actions: ["D+0统一感谢和资料补发", "D+1重点跟进A类家庭", "D+2触达B/C类家庭", "更新家庭状态"],
+        output: ["跟进记录", "预约结果", "家庭状态更新", "未响应名单"],
+        acceptance: ["所有到访家庭都被触达", "A类家庭有电话或微信深度跟进", "下一步动作清晰可追踪"],
+        risk: "活动后热度衰减很快，超过 D+2 再联系，转化效率会明显下降。",
+        fallback: "当天来不及逐个沟通时，先统一触达，再按意向等级分层跟进。",
+        records: "跟进记录表、家庭状态表。"
+      },
+      {
+        id: 12,
+        title: "复盘",
+        owner: "林老师整理；董老师、杨老师确认",
+        deadline: "D+1 或 D+2",
+        duration: "30 到 45 分钟",
+        location: "复盘会 / 复盘表",
+        goal: "用数据和现场问题更新流程，让下一场活动不是重新摸索。",
+        flow: ["董老师提交邀约、接待、咨询和离场问题", "林老师整理方案与物料相关问题", "模块老师提交内容反馈", "董老师、杨老师确认改进项和模板更新"],
+        input: ["报名数据", "到访数据", "咨询记录", "跟进结果", "现场问题"],
+        actions: ["林老师整理复盘材料", "董老师反馈邀约、接待、咨询转化、离场和物料执行问题", "杨老师参与确认改进项", "模块老师反馈模块表现"],
+        output: ["复盘报告", "问题清单", "改进动作", "下次模板更新项"],
+        acceptance: ["有数据，不只聊感受", "每个问题有负责人和截止点", "能沉淀为下一场活动模板"],
+        risk: "只复盘现场热闹程度，会错过报名、到访、咨询、转化各段的真实问题。",
+        fallback: "无法开完整复盘会时，至少收集到访率、咨询率、A类家庭数、主要问题。",
+        records: "复盘报告、活动归档包。"
+      }
+    ];
+
+    const customSections = {
+      materials: `
+        <div class="detail-block wide">
+          <strong>物料规格与制作表</strong>
+          <div class="table-wrap">
+            <table class="material-table">
+              <thead>
+                <tr><th>物料</th><th>尺寸 / 规格</th><th>用途 / 点位</th><th>到位标准</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>活动提醒海报</td><td>1080 x 1920 px，电子版</td><td>活动前一天发给参与家庭，做提醒和仪式感</td><td>活动开始前已发送，内容与主题一致</td></tr>
+                <tr><td>入口 / 闸机识别</td><td>A2 / A1 海报，海报架或 KT 板</td><td>出入闸机、门卫岗亭附近，让家庭确认入口</td><td>入口远处可识别，文字不拥挤</td></tr>
+                <tr><td>老师工牌</td><td>现有蓝色工牌，夹扣或挂绳固定</td><td>接待、签到、带场、咨询、离场老师全程佩戴</td><td>正面朝外，字样清晰，不能放在口袋或反戴</td></tr>
+                <tr><td>楼内导视</td><td>A3 / A2 指示牌，按点位数量制作</td><td>闸机、世青楼台阶、1楼大堂、宣讲区、咨询区</td><td>每个转向点都有导视</td></tr>
+                <tr><td>氛围展示</td><td>易拉宝 80 x 200 cm；流程牌 A3 / A2；大电视 1920 x 1080 px</td><td>世青楼1楼大堂、世青楼2楼、群贤楼阅览室</td><td>主题、风格、投屏内容一致</td></tr>
+                <tr><td>签到识别</td><td>背胶姓名贴约 40 x 30 mm 或 50 x 30 mm；桌牌 A5</td><td>签到区、休息区、咨询区</td><td>贴纸可读，不含手机号、原学校等敏感信息</td></tr>
+                <tr><td>资料交付</td><td>A4 折页、A5 资料册或 A5 二维码立牌</td><td>咨询和离场时交付后续资料</td><td>二维码可扫，资料数量覆盖到访家庭</td></tr>
+                <tr><td>活动 Kit 基础物料箱</td><td>透明收纳箱，建议 35 x 25 x 20 cm 起</td><td>签到区附近，放常用现场工具和耗材</td><td>签字笔、马克笔、胶带、剪刀、纸巾、垃圾袋、插线板、充电宝、备用姓名贴齐全</td></tr>
+                <tr><td>应急药箱</td><td>便携药箱，放在签到区或咨询区附近</td><td>只用于轻微突发情况的基础应急</td><td>创可贴、纱布、绷带、消毒棉片、一次性手套、冷敷袋等已清点</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="detail-block wide">
+          <strong>应急药箱建议项</strong>
+          <ul>
+            <li>创可贴、无菌纱布、绷带、医用胶带、消毒湿巾或棉片、一次性非乳胶手套。</li>
+            <li>即时冷敷袋、非水银体温计、剪刀、镊子、急救说明卡、紧急联系人卡。</li>
+            <li>只处理轻微、明确的现场应急情况；严重或不确定情况立即联系家长、校方负责人或急救电话。</li>
+          </ul>
+        </div>
+      `,
+      labels: `
+        <div class="detail-block wide">
+          <strong>贴纸字段</strong>
+          <ul>
+            <li>家长：家长姓名 / 家庭编号 / 负责老师。</li>
+            <li>学生：学生姓名 / 年级 / 分组颜色。</li>
+            <li>不要打印手机号、原学校、家庭住址等敏感信息。</li>
+          </ul>
+        </div>
+      `,
+      decor: `
+        <div class="detail-block wide">
+          <strong>世青楼2楼装饰标准</strong>
+          <ul>
+            <li>入口：活动指示牌或海报，确认家庭走到正确空间。</li>
+            <li>前场：主视觉背景、投屏画面、讲台或主讲位置清晰。</li>
+            <li>两侧：活动海报、易拉宝或主题展板，避免空间过白。</li>
+            <li>座位：按人数预留座椅，保留通道和咨询转场路线。</li>
+            <li>桌面：流程牌、二维码牌、资料摆放与主题风格一致。</li>
+          </ul>
+        </div>
+      `
+    };
+
+    const renderList = (items) => `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+
+    const renderStage = (stage) => `
+      <article class="stage" id="stage-${stage.id}">
+        <div class="stage-head">
+          <span class="stage-index">${stage.id}</span>
+          <div>
+            <h3>${stage.title}</h3>
+            <div class="stage-meta">
+              <span>截止：${stage.deadline}</span>
+              <span>时长：${stage.duration}</span>
+              <span>地点：${stage.location}</span>
+            </div>
+          </div>
+          <span class="owner">${stage.owner}</span>
+        </div>
+        <div class="stage-body">
+          <div>
+            <div class="goal-box"><strong>这一段要解决什么</strong><p>${stage.goal}</p></div>
+            <div class="mini-flow" aria-label="${stage.title}流程">
+              ${stage.flow.map((step, index) => `<div class="mini-step"><b>${index + 1}</b><span>${step}</span></div>`).join("")}
+            </div>
+          </div>
+          <div>
+            <div class="detail-grid">
+              <div class="detail-block"><strong>前置输入</strong>${renderList(stage.input)}</div>
+              <div class="detail-block"><strong>标准动作</strong>${renderList(stage.actions)}</div>
+              <div class="detail-block"><strong>交付输出</strong>${renderList(stage.output)}</div>
+              <div class="detail-block"><strong>验收标准</strong>${renderList(stage.acceptance)}</div>
+              ${stage.custom ? customSections[stage.custom] : ""}
+            </div>
+            <div class="notice-row">
+              <div class="notice risk"><strong>风险点</strong><p>${stage.risk}</p></div>
+              <div class="notice backup"><strong>降级方案</strong><p>${stage.fallback}</p></div>
+            </div>
+            <div class="notice" style="margin-top: 12px;"><strong>记录位置</strong><p>${stage.records}</p></div>
+          </div>
+        </div>
+      </article>
+    `;
+
+    document.querySelector("#stage-list").innerHTML = stages.map(renderStage).join("");
+
+    const links = Array.from(document.querySelectorAll(".flow a"));
+    const sections = links
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    const setActive = (id) => {
+      links.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id);
+      },
+      { rootMargin: "-18% 0px -64% 0px", threshold: [0.1, 0.35, 0.6] }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    if (sections[0]) setActive(sections[0].id);
+  </script>
+</body>
+</html>
