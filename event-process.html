@@ -208,6 +208,14 @@
       margin: 22px 0 14px;
     }
 
+    .section-head.compact {
+      margin: 0 0 10px;
+    }
+
+    .section-head.compact h3 {
+      font-size: 18px;
+    }
+
     h2 {
       font-size: 25px;
       letter-spacing: 0;
@@ -816,6 +824,174 @@
       padding-left: 18px;
     }
 
+    .module-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .module-detail {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .module-detail-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+      background: #f7fbfa;
+    }
+
+    .module-detail-head h3 {
+      margin-bottom: 6px;
+      font-size: 21px;
+    }
+
+    .module-detail-head p {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .module-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .module-tags span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .module-owner {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: var(--green);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .module-detail-body {
+      display: grid;
+      gap: 16px;
+      padding: 18px;
+    }
+
+    .module-spec-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .module-spec {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .module-spec strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .module-spec span {
+      color: #303835;
+      font-size: 13px;
+    }
+
+    .module-section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .module-panel {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .module-panel h4 {
+      margin-bottom: 8px;
+      color: #1f2d2a;
+      font-size: 16px;
+    }
+
+    .module-panel li {
+      color: #303835;
+      font-size: 14px;
+    }
+
+    .module-run {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .module-run-step {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .module-run-step b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--green);
+      font-size: 13px;
+    }
+
+    .module-run-step span {
+      color: #303835;
+      font-size: 13px;
+    }
+
+    .module-output-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    .module-output {
+      padding: 12px;
+      border-radius: var(--radius);
+      border: 1px solid #efd18a;
+      background: var(--amber-soft);
+    }
+
+    .module-output strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #6a4a08;
+      font-size: 13px;
+    }
+
+    .module-output p {
+      color: #4c3a18;
+      font-size: 13px;
+    }
+
     .footer-note {
       margin-top: 28px;
       padding: 16px;
@@ -834,7 +1010,12 @@
       .notice-row,
       .module-contract,
       .module-library,
-      .module-checklist {
+      .module-checklist,
+      .module-detail-head,
+      .module-spec-grid,
+      .module-section-grid,
+      .module-run,
+      .module-output-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1026,7 +1207,7 @@
         </article>
         <article class="lane">
           <h3>模块老师：内容交付</h3>
-          <p>负责 CREST、BTEC、中考后升学等业务模块，不改变主轴。</p>
+          <p>负责 CRES 项目体验、AI 调香、BTEC、中考后升学等业务模块，不改变主轴。</p>
           <div class="lane-steps"><a href="#stage-7">7 宣讲</a><a href="#stage-9">9 模块</a></div>
         </article>
       </div>
@@ -1055,7 +1236,7 @@
           <a class="phase-node" href="#stage-6"><b>6</b><span>开场带场：从休息区进入正式活动</span></a>
           <a class="phase-node" href="#stage-7"><b>7</b><span>宣讲：讲清背景和价值</span></a>
           <a class="phase-node" href="#stage-8"><b>8</b><span>参观学校：未来楼参观</span></a>
-          <a class="phase-node" href="#stage-9"><b>9</b><span>模块：CREST / BTEC / 升学等插件</span></a>
+          <a class="phase-node" href="#stage-9"><b>9</b><span>模块：CRES / AI调香 / 后续插件</span></a>
         </article>
         <article class="phase">
           <div class="phase-title">转化期：把体验变成下一步</div>
@@ -1076,6 +1257,14 @@
         <span class="hint">顶部节点可直接点击定位；下方按主轴顺序完整呈现</span>
       </div>
       <div id="stage-list" class="stage-list"></div>
+    </section>
+
+    <section aria-labelledby="module-title">
+      <div class="section-head">
+        <h2 id="module-title">模块库</h2>
+        <span class="hint">每场活动替换这里的模块；主轴第 0-13 节不变</span>
+      </div>
+      <div id="module-list" class="module-list"></div>
     </section>
 
     <section aria-labelledby="template-title">
@@ -1393,6 +1582,121 @@
       }
     ];
 
+    const moduleDetails = [
+      {
+        id: "module-cres-game",
+        title: "CRES 项目体验课：AI x Game 制作体验",
+        type: "体验型 / 科技创作",
+        owner: "蔡老师",
+        duration: "标准 60 分钟；压缩版 40 分钟",
+        location: "未来楼电脑教室 / AI 工坊",
+        capacity: "建议 8-18 名学生；2-3 人一组",
+        goal: "让学生用 Cursor、Codex 等 IDE 进行 vibe coding，结合 Codot/Godot 游戏模板，完成一个带有自己玩法和美术想法的小型游戏 prototype。",
+        what: [
+          "学生先选择一个基础游戏模板或示例项目。",
+          "学生提出一个自己的游戏改动：玩法、角色、道具、障碍、关卡、规则或美术风格。",
+          "蔡老师示范如何把自然语言想法拆成可实现的小任务。",
+          "学生在老师指导下使用 AI IDE 修改代码、画面或规则。",
+          "最后跑通并展示一个可试玩的 prototype。"
+        ],
+        prep: [
+          "T-7：锁定未来楼电脑教室或 AI 工坊，确认电脑数量、网络、电源、投屏和座位。",
+          "T-3：每台电脑测试 Cursor、Codex 等工具登录状态，准备 Codot/Godot 游戏模板和离线备份包。",
+          "T-3：准备 2-3 个可快速修改的游戏模板，避免从零开始导致时间失控。",
+          "T-1：打印游戏创意卡、需求卡、学生观察表、操作步骤牌和成果记录表。",
+          "D-day：提前打开项目、投屏、备用 demo 和素材文件夹，确认每组都能正常运行。"
+        ],
+        materials: [
+          "电脑或笔记本，建议每 2-3 名学生 1 台。",
+          "Cursor、Codex 等 AI IDE 账号和可用网络。",
+          "Codot/Godot 游戏模板、基础素材包、备用 demo、投屏设备。",
+          "游戏创意卡、需求卡、马克笔、分组贴纸、学生观察表。",
+          "成果截图或录屏工具，便于后续咨询和复盘归档。"
+        ],
+        steps: [
+          { time: "0-5 分钟", title: "接场与定任务", text: "从参观学校后接住学生，说明今天不是听课，而是把一个游戏想法真的做出来。" },
+          { time: "5-10 分钟", title: "AI 开发演示", text: "蔡老师投屏演示：一句想法如何变成任务，再由 AI IDE 辅助改动代码或画面。" },
+          { time: "10-18 分钟", title: "创意选择", text: "学生填写游戏创意卡，确定想改的玩法、角色、道具、关卡或美术方向。" },
+          { time: "18-45 分钟", title: "Vibe coding 实操", text: "学生按组操作，老师把复杂想法压缩成可完成的小改动，优先做可见、能跑通的版本。" },
+          { time: "45-55 分钟", title: "测试与互看", text: "每组试玩自己的 prototype，修一个关键问题，截图或录屏保存成果。" },
+          { time: "55-60 分钟", title: "成果收口", text: "每组用 30 秒说明：我做了什么、哪里用了 AI、游戏有什么新意。" }
+        ],
+        outputs: [
+          { title: "学生作品", text: "每组至少 1 个可运行 prototype，或一个可展示的游戏画面 / 玩法改动。" },
+          { title: "记录材料", text: "游戏创意卡、需求卡、成果截图或录屏、学生观察记录。" },
+          { title: "咨询线索", text: "学生对 AI、编程、游戏设计、美术设计、项目制学习的兴趣和适配度。" }
+        ],
+        consult: [
+          "孩子是否能把想法拆成清楚任务。",
+          "孩子更偏玩法逻辑、视觉表达、故事设定还是动手调试。",
+          "家庭是否关注 AI 创作、计算机方向、艺术设计方向或项目制课程。",
+          "是否适合预约更深度的课程体验或作品集/项目制学习咨询。"
+        ],
+        fallback: [
+          "网络或账号异常：切换到本地 demo 和离线模板，由老师现场演示关键修改。",
+          "学生需求过大：只保留一个最小可见功能，比如换角色、加道具、改速度、改关卡提示。",
+          "电脑数量不足：改为 3-4 人一组，由一名学生操作，其余学生负责提示词、玩法和美术设计。",
+          "时间不足：取消互测环节，保留成果截图、口头展示和咨询线索记录。"
+        ]
+      },
+      {
+        id: "module-ai-perfume",
+        title: "AI 调香课",
+        type: "体验型 / 科学艺术",
+        owner: "江老师",
+        duration: "标准 50-60 分钟；压缩版 35-40 分钟",
+        location: "未来楼生化工坊 / 科学实验室",
+        capacity: "建议 8-16 名学生；1 人 1 份小样",
+        goal: "让学生用 AI 把气味偏好、场景和情绪转译成香调方案，再在安全规范下完成一瓶个人小样。",
+        what: [
+          "学生用关键词描述自己想要的气味：场景、情绪、颜色、记忆或人物。",
+          "AI 根据关键词生成香调方向和配方建议。",
+          "江老师讲解安全规范、闻香方式和基础香调结构。",
+          "学生选择 2-4 种香气材料，按滴数记录完成小样。",
+          "学生为自己的香水命名并写一张气味故事卡。"
+        ],
+        prep: [
+          "T-7：锁定未来楼生化工坊或科学实验室，确认通风、桌面保护、清洁和废弃物处理规则。",
+          "T-3：确认香料、滴管、小样瓶、试香纸、标签、手套、托盘和密封袋数量。",
+          "T-3：准备 AI 调香提示词模板、香调选择卡、配方记录卡和安全说明卡。",
+          "T-1：检查过敏提醒和现场安全话术，确认不入口、不接触眼口、不混用器具。",
+          "D-day：按座位摆好材料包，老师先做一份示范小样并测试流程时长。"
+        ],
+        materials: [
+          "安全可控的香气材料、试香纸、滴管、小样瓶、标签贴、密封袋。",
+          "一次性手套、桌面垫纸、纸巾、垃圾袋、清洁用品。",
+          "AI 提示词卡、香调选择卡、配方记录卡、气味故事卡。",
+          "投屏设备，用于展示 AI 如何从关键词生成香调建议。",
+          "过敏和安全提醒牌，放在入口和操作台。"
+        ],
+        steps: [
+          { time: "0-5 分钟", title: "安全说明", text: "江老师说明不入口、不接触眼口、闻香方式、滴管使用和过敏提醒。" },
+          { time: "5-12 分钟", title: "AI 生成香调", text: "学生输入场景、情绪、颜色或记忆关键词，得到自己的香调方向。" },
+          { time: "12-20 分钟", title: "闻香与选择", text: "学生按老师指引闻香，选择 2-4 种材料，并在配方卡上记录。" },
+          { time: "20-40 分钟", title: "调配小样", text: "学生按滴数调配，老师巡回检查比例、卫生和安全。" },
+          { time: "40-50 分钟", title: "命名与标签", text: "学生给作品命名，写气味故事卡，贴上姓名和配方编号。" },
+          { time: "50-60 分钟", title: "分享与收口", text: "学生展示作品名和灵感来源，老师回收配方卡并确认小样密封。" }
+        ],
+        outputs: [
+          { title: "学生作品", text: "每名学生 1 瓶安全密封的小样香水或气味样本。" },
+          { title: "记录材料", text: "AI 香调建议、配方记录卡、气味故事卡、作品照片。" },
+          { title: "咨询线索", text: "学生对科学实验、审美表达、AI 创作、跨学科项目的兴趣和适配度。" }
+        ],
+        consult: [
+          "孩子是否能把抽象感受转化成可执行配方。",
+          "孩子更偏科学实验、艺术表达、语言描述还是产品设计。",
+          "家庭是否关注跨学科学习、AI 应用、科学实践或创意课程。",
+          "是否适合继续预约项目制课程、科学实验课程或艺术设计相关咨询。"
+        ],
+        fallback: [
+          "有学生气味敏感或过敏风险：改为只做 AI 香调设计和故事卡，不参与闻香或滴加。",
+          "材料不足：两人共用一组材料，但每人保留独立标签和故事卡。",
+          "时间不足：老师预先给出 3 个基础配方，学生只做微调、命名和标签。",
+          "现场气味过重：减少同时开瓶数量，分批操作，并保持通风。"
+        ]
+      }
+    ];
+
     const customSections = {
       materials: `
         <div class="detail-block wide">
@@ -1473,40 +1777,22 @@
           </div>
         </div>
         <div class="detail-block wide">
-          <strong>首批模块库</strong>
+          <strong>当前已展开模块</strong>
           <div class="module-library">
             <article class="module-card">
               <span class="module-badge">体验型</span>
-              <h4>CREST 体验课</h4>
-              <p>让家庭看到孩子在项目式任务里的理解力、表达力和兴趣点。</p>
-              <dl>
-                <div><dt>适用家庭</dt><dd>关注国际课程、科学探究、项目制学习和孩子适配度的家庭。</dd></div>
-                <div><dt>建议结构</dt><dd>项目导入 5-8 分钟；体验任务 25-35 分钟；成果展示和反馈 10 分钟。</dd></div>
-                <div><dt>交付输出</dt><dd>学生观察记录、任务结果、家长问题、是否适合继续深度体验。</dd></div>
-                <div><dt>咨询承接</dt><dd>围绕孩子能力表现、课程路径、后续培养方案进入咨询。</dd></div>
-              </dl>
+              <h4>CRES 项目体验课：AI x Game</h4>
+              <p>蔡老师负责，在未来楼电脑教室 / AI 工坊执行，输出游戏 prototype、创意卡和咨询线索。</p>
             </article>
             <article class="module-card">
-              <span class="module-badge">路径型</span>
-              <h4>中考之后，多元途径升学</h4>
-              <p>帮助中考后家庭把升学选择从焦虑变成可比较的路径。</p>
-              <dl>
-                <div><dt>适用家庭</dt><dd>中考后或中考前后摇摆，想了解普高、国际路径、职业路径差异的家庭。</dd></div>
-                <div><dt>建议结构</dt><dd>路径地图 15 分钟；案例对比 15 分钟；家庭选择清单和问答 15-20 分钟。</dd></div>
-                <div><dt>交付输出</dt><dd>家庭当前分流点、担忧点、时间节点、最可能咨询的路径。</dd></div>
-                <div><dt>咨询承接</dt><dd>围绕成绩区间、目标国家/专业、预算、入学时间做一对一判断。</dd></div>
-              </dl>
+              <span class="module-badge">科学艺术</span>
+              <h4>AI 调香课</h4>
+              <p>江老师负责，在未来楼生化工坊 / 科学实验室执行，输出小样作品、配方卡和咨询线索。</p>
             </article>
             <article class="module-card">
-              <span class="module-badge">产品型</span>
-              <h4>BTEC 产品介绍</h4>
-              <p>把 BTEC 的课程结构、适配学生、升学出口和学校支持讲清楚。</p>
-              <dl>
-                <div><dt>适用家庭</dt><dd>关注职业教育、应用型课程、作品集或英联邦升学路径的家庭。</dd></div>
-                <div><dt>建议结构</dt><dd>产品框架 15 分钟；课程样例 10-15 分钟；升学案例和问答 15 分钟。</dd></div>
-                <div><dt>交付输出</dt><dd>家长对 BTEC 的核心疑问、适配判断、是否需要课程顾问深聊。</dd></div>
-                <div><dt>咨询承接</dt><dd>围绕课程难度、评估方式、升学出口、与学生兴趣的匹配度继续咨询。</dd></div>
-              </dl>
+              <span class="module-badge">待加入</span>
+              <h4>后续模块</h4>
+              <p>BTEC、中考后升学等主题后续继续按同一接口补齐，不改变主轴。</p>
             </article>
           </div>
         </div>
@@ -1514,6 +1800,75 @@
     };
 
     const renderList = (items) => `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+
+    const renderModule = (module) => `
+      <article class="module-detail" id="${module.id}">
+        <div class="module-detail-head">
+          <div>
+            <h3>${module.title}</h3>
+            <p>${module.goal}</p>
+            <div class="module-tags">
+              <span>${module.type}</span>
+              <span>${module.duration}</span>
+              <span>${module.capacity}</span>
+            </div>
+          </div>
+          <span class="module-owner">${module.owner}</span>
+        </div>
+        <div class="module-detail-body">
+          <div class="module-spec-grid">
+            <div class="module-spec"><strong>具体做什么</strong><span>${module.what[0]}</span></div>
+            <div class="module-spec"><strong>在哪做</strong><span>${module.location}</span></div>
+            <div class="module-spec"><strong>怎么组织</strong><span>${module.capacity}</span></div>
+            <div class="module-spec"><strong>谁负责</strong><span>${module.owner}</span></div>
+          </div>
+          <div class="module-section-grid">
+            <div class="module-panel">
+              <h4>具体模块做什么</h4>
+              ${renderList(module.what)}
+            </div>
+            <div class="module-panel">
+              <h4>要提前准备什么</h4>
+              ${renderList(module.prep)}
+            </div>
+            <div class="module-panel">
+              <h4>物料 / 设备</h4>
+              ${renderList(module.materials)}
+            </div>
+            <div class="module-panel">
+              <h4>咨询承接问题</h4>
+              ${renderList(module.consult)}
+            </div>
+          </div>
+          <div>
+            <div class="section-head compact">
+              <h3>怎么做</h3>
+              <span class="hint">模块老师按这个节奏接场、执行、收口</span>
+            </div>
+            <div class="module-run">
+              ${module.steps.map((step) => `
+                <div class="module-run-step">
+                  <b>${step.time}｜${step.title}</b>
+                  <span>${step.text}</span>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+          <div class="module-output-grid">
+            ${module.outputs.map((item) => `
+              <div class="module-output">
+                <strong>${item.title}</strong>
+                <p>${item.text}</p>
+              </div>
+            `).join("")}
+          </div>
+          <div class="notice backup">
+            <strong>降级方案</strong>
+            ${renderList(module.fallback)}
+          </div>
+        </div>
+      </article>
+    `;
 
     const renderStage = (stage) => `
       <article class="stage" id="stage-${stage.id}">
@@ -1556,6 +1911,7 @@
     `;
 
     document.querySelector("#stage-list").innerHTML = stages.map(renderStage).join("");
+    document.querySelector("#module-list").innerHTML = moduleDetails.map(renderModule).join("");
 
     const links = Array.from(document.querySelectorAll(".flow a"));
     const sections = links
