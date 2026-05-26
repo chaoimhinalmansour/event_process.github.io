@@ -1207,7 +1207,7 @@
         </article>
         <article class="lane">
           <h3>模块老师：内容交付</h3>
-          <p>负责 CRES 项目体验、AI 调香、BTEC、中考后升学等业务模块，不改变主轴。</p>
+          <p>负责体验类模块和宣讲后的服务类模块；中考、BTEC 等纯宣讲主题先归第 7 节。</p>
           <div class="lane-steps"><a href="#stage-7">7 宣讲</a><a href="#stage-9">9 模块</a></div>
         </article>
       </div>
@@ -1236,7 +1236,7 @@
           <a class="phase-node" href="#stage-6"><b>6</b><span>开场带场：从休息区进入正式活动</span></a>
           <a class="phase-node" href="#stage-7"><b>7</b><span>宣讲：讲清背景和价值</span></a>
           <a class="phase-node" href="#stage-8"><b>8</b><span>参观学校：未来楼参观</span></a>
-          <a class="phase-node" href="#stage-9"><b>9</b><span>模块：CRES / AI调香 / 后续插件</span></a>
+          <a class="phase-node" href="#stage-9"><b>9</b><span>模块：体验类 / 服务类插件</span></a>
         </article>
         <article class="phase">
           <div class="phase-title">转化期：把体验变成下一步</div>
@@ -1262,7 +1262,7 @@
     <section aria-labelledby="module-title">
       <div class="section-head">
         <h2 id="module-title">模块库</h2>
-        <span class="hint">每场活动替换这里的模块；主轴第 0-13 节不变</span>
+        <span class="hint">体验类在这里展开；宣讲类先归第 7 节，是否接服务模块待定</span>
       </div>
       <div id="module-list" class="module-list"></div>
     </section>
@@ -1309,8 +1309,8 @@
             </tr>
             <tr>
               <td>模块卡 / 模块冻结表</td>
-              <td>模块名称、目标家庭、核心问题、活动形式、标准时长、人数上限、场地设备、模块老师、物料、输出线索、咨询承接问题、降级方案</td>
-              <td>保证每场活动只替换模块，不改主轴；让模块结束后能自然进入咨询</td>
+              <td>模块名称、模块类型、目标家庭、核心问题、活动形式、标准时长、人数上限、场地设备、模块老师、物料、输出线索、咨询承接问题、降级方案</td>
+              <td>区分体验模块、服务模块和宣讲主题，保证第 9 节不和第 7 节重复</td>
               <td>模块老师填写；林老师确认方案；董老师确认承接</td>
             </tr>
             <tr>
@@ -1500,15 +1500,15 @@
         deadline: "随具体模块单独冻结",
         duration: "待定",
         location: "根据模块决定",
-        goal: "把每一场具体活动做成可替换插件：主轴不变，只替换模块卡、老师、物料和咨询承接口径。",
-        flow: ["确认本场模块卡", "模块老师从参观后接场", "按模块 SOP 完成内容交付", "输出可咨询线索并交给董老师"],
-        input: ["模块卡", "适用人群", "模块老师", "场地和物料", "咨询承接问题"],
-        actions: ["开场先说明本模块要解决的家庭问题", "按模块 SOP 控制节奏和参与方式", "现场记录学生表现、家长问题和意向信号", "结束时用固定话术交给咨询区"],
-        output: ["模块体验结果", "家庭关注问题", "学生表现或兴趣线索", "咨询承接点"],
-        acceptance: ["模块按时结束", "家庭知道本模块和升学/课程选择的关系", "至少形成一条可咨询线索", "能自然进入咨询转化"],
-        risk: "模块如果只像一段内容展示，而没有明确输入、输出和咨询线索，主轴会在模块结束后断流。",
-        fallback: "模块设备或老师异常时，启用低配版讲解、案例、纸笔任务或问答，但仍必须输出咨询承接点。",
-        records: "模块卡、模块 SOP、模块反馈表、学生观察表、咨询承接问题清单。",
+        goal: "把第 9 节定义成可替换插件位：体验类模块可以直接接入；纯宣讲主题先归第 7 节，宣讲后的服务模块是否接入待定。",
+        flow: ["判断本场是否需要第 9 节模块", "体验类按模块 SOP 执行", "宣讲类活动优先配置服务承接", "输出可咨询线索并交给董老师"],
+        input: ["模块类型", "适用人群", "模块老师", "场地和物料", "咨询承接问题"],
+        actions: ["先判断内容属于宣讲、体验还是服务", "体验类模块按 SOP 控制节奏和参与方式", "服务类模块承接宣讲后的家庭问题和下一步动作", "结束时用固定话术交给咨询区"],
+        output: ["体验结果或服务记录", "家庭关注问题", "学生表现或兴趣线索", "咨询承接点"],
+        acceptance: ["第 9 节没有和第 7 节宣讲重复", "模块按时结束", "至少形成一条可咨询线索", "能自然进入咨询转化"],
+        risk: "如果把宣讲主题也塞进模块，主轴会出现两个宣讲段，家庭会觉得重复，团队也难以判断第 7 节和第 9 节分别交付什么。",
+        fallback: "若本场活动本身以宣讲为主，第 9 节可以先不接体验模块，改为待定的客户服务 / 路径诊断 / 答疑承接模块。",
+        records: "模块卡、模块 SOP、服务记录表、学生观察表、咨询承接问题清单。",
         custom: "modules",
         customFull: true
       },
@@ -1756,15 +1756,22 @@
           <strong>模块接口标准</strong>
           <div class="module-system">
             <div class="module-contract">
-              <div class="contract-step"><b>1</b><strong>模块前输入</strong><p>来自宣讲和未来楼参观的共同语境，家庭已经知道为什么继续听。</p></div>
-              <div class="contract-step"><b>2</b><strong>模块中交付</strong><p>用体验、案例、路径图或产品说明，把一个具体问题讲透或做出来。</p></div>
-              <div class="contract-step"><b>3</b><strong>模块后输出</strong><p>留下学生表现、家庭问题、关注路径和意向信号，不能只留下“听过”。</p></div>
-              <div class="contract-step"><b>4</b><strong>交给咨询</strong><p>模块老师把关键线索交给董老师，咨询老师按家庭编号继续承接。</p></div>
+              <div class="contract-step"><b>1</b><strong>先判类型</strong><p>先判断这是宣讲主题、体验模块，还是宣讲后的服务承接。</p></div>
+              <div class="contract-step"><b>2</b><strong>宣讲归宣讲</strong><p>中考宣讲、BTEC 宣讲等纯内容讲解先放第 7 节宣讲子方案。</p></div>
+              <div class="contract-step"><b>3</b><strong>体验进模块</strong><p>有学生动作、现场产出和可观察线索的体验课，放第 9 节模块。</p></div>
+              <div class="contract-step"><b>4</b><strong>服务待定</strong><p>若活动主目标是宣讲，第 9 节可搭配客户服务、路径诊断或答疑承接模块。</p></div>
+            </div>
+            <div class="module-contract">
+              <div class="contract-step"><b>A</b><strong>体验类模块</strong><p>例如 CRES AI x Game、AI 调香课。必须有参与动作、作品或观察记录。</p></div>
+              <div class="contract-step"><b>B</b><strong>服务类模块</strong><p>宣讲后的路径诊断、资料解读、1v1 问题梳理、测评预约。具体形态待定。</p></div>
+              <div class="contract-step"><b>C</b><strong>宣讲类主题</strong><p>例如中考后升学、BTEC 产品介绍。原则上归第 7 节，不重复放入第 9 节。</p></div>
+              <div class="contract-step"><b>D</b><strong>展示类内容</strong><p>展板、作品、案例陈列更像物料和参观补充，不单独作为模块，除非有互动任务。</p></div>
             </div>
             <div>
               <strong>每个模块冻结前必须补齐</strong>
               <ul class="module-checklist">
                 <li>模块名称与目标家庭</li>
+                <li>模块类型：体验 / 服务 / 待定</li>
                 <li>本模块要解决的核心问题</li>
                 <li>不适合哪些家庭</li>
                 <li>标准时长和人数上限</li>
@@ -1790,9 +1797,9 @@
               <p>江老师负责，在未来楼生化工坊 / 科学实验室执行，输出小样作品、配方卡和咨询线索。</p>
             </article>
             <article class="module-card">
-              <span class="module-badge">待加入</span>
-              <h4>后续模块</h4>
-              <p>BTEC、中考后升学等主题后续继续按同一接口补齐，不改变主轴。</p>
+              <span class="module-badge">待定</span>
+              <h4>宣讲后的服务模块</h4>
+              <p>中考宣讲、BTEC 宣讲先放第 7 节；第 9 节是否接客户服务、路径诊断或答疑承接，后续再定。</p>
             </article>
           </div>
         </div>
