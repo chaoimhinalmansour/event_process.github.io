@@ -837,9 +837,18 @@
       box-shadow: var(--shadow);
     }
 
+    .module-detail > summary {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .module-detail > summary::-webkit-details-marker {
+      display: none;
+    }
+
     .module-detail-head {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr auto auto;
       gap: 16px;
       align-items: start;
       padding: 18px;
@@ -885,6 +894,26 @@
       font-size: 13px;
       font-weight: 900;
       white-space: nowrap;
+    }
+
+    .module-expand {
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .module-expand::after {
+      content: " +";
+      color: var(--green);
+    }
+
+    .module-detail[open] .module-expand::after {
+      content: " -";
     }
 
     .module-detail-body {
@@ -1207,7 +1236,7 @@
         </article>
         <article class="lane">
           <h3>模块老师：内容交付</h3>
-          <p>负责体验类模块和宣讲后的服务类模块；中考、BTEC 等纯宣讲主题先归第 7 节。</p>
+          <p>负责体验类、服务类、展示类模块；中考、BTEC 等纯宣讲主题先归第 7 节。</p>
           <div class="lane-steps"><a href="#stage-7">7 宣讲</a><a href="#stage-9">9 模块</a></div>
         </article>
       </div>
@@ -1236,7 +1265,7 @@
           <a class="phase-node" href="#stage-6"><b>6</b><span>开场带场：从休息区进入正式活动</span></a>
           <a class="phase-node" href="#stage-7"><b>7</b><span>宣讲：讲清背景和价值</span></a>
           <a class="phase-node" href="#stage-8"><b>8</b><span>参观学校：未来楼参观</span></a>
-          <a class="phase-node" href="#stage-9"><b>9</b><span>模块：体验类 / 服务类插件</span></a>
+          <a class="phase-node" href="#stage-9"><b>9</b><span>模块：体验 / 服务 / 展示插件</span></a>
         </article>
         <article class="phase">
           <div class="phase-title">转化期：把体验变成下一步</div>
@@ -1262,7 +1291,7 @@
     <section aria-labelledby="module-title">
       <div class="section-head">
         <h2 id="module-title">模块库</h2>
-        <span class="hint">体验类在这里展开；宣讲类先归第 7 节，是否接服务模块待定</span>
+        <span class="hint">三大模块都可展开看内部动作；宣讲主题先归第 7 节</span>
       </div>
       <div id="module-list" class="module-list"></div>
     </section>
@@ -1310,7 +1339,7 @@
             <tr>
               <td>模块卡 / 模块冻结表</td>
               <td>模块名称、模块类型、目标家庭、核心问题、活动形式、标准时长、人数上限、场地设备、模块老师、物料、输出线索、咨询承接问题、降级方案</td>
-              <td>区分体验模块、服务模块和宣讲主题，保证第 9 节不和第 7 节重复</td>
+              <td>区分体验模块、服务模块和展示模块，保证第 9 节不和第 7 节宣讲重复</td>
               <td>模块老师填写；林老师确认方案；董老师确认承接</td>
             </tr>
             <tr>
@@ -1500,15 +1529,15 @@
         deadline: "随具体模块单独冻结",
         duration: "待定",
         location: "根据模块决定",
-        goal: "把第 9 节定义成可替换插件位：体验类模块可以直接接入；纯宣讲主题先归第 7 节，宣讲后的服务模块是否接入待定。",
-        flow: ["判断本场是否需要第 9 节模块", "体验类按模块 SOP 执行", "宣讲类活动优先配置服务承接", "输出可咨询线索并交给董老师"],
+        goal: "把第 9 节定义成可替换插件位：暂定三大模块为体验类、服务类、展示类；纯宣讲主题先归第 7 节。",
+        flow: ["判断本场需要哪类模块", "打开对应模块卡查看内部动作", "按模块 SOP 执行并形成输出", "把线索交给董老师进入咨询"],
         input: ["模块类型", "适用人群", "模块老师", "场地和物料", "咨询承接问题"],
-        actions: ["先判断内容属于宣讲、体验还是服务", "体验类模块按 SOP 控制节奏和参与方式", "服务类模块承接宣讲后的家庭问题和下一步动作", "结束时用固定话术交给咨询区"],
-        output: ["体验结果或服务记录", "家庭关注问题", "学生表现或兴趣线索", "咨询承接点"],
+        actions: ["先判断内容属于体验、服务还是展示", "体验类模块重点管理学生动作和作品输出", "服务类模块重点承接家庭问题和下一步动作", "展示类模块重点管理展示点位、讲解动作和互动记录"],
+        output: ["体验作品 / 服务记录 / 展示反馈", "家庭关注问题", "学生表现或兴趣线索", "咨询承接点"],
         acceptance: ["第 9 节没有和第 7 节宣讲重复", "模块按时结束", "至少形成一条可咨询线索", "能自然进入咨询转化"],
-        risk: "如果把宣讲主题也塞进模块，主轴会出现两个宣讲段，家庭会觉得重复，团队也难以判断第 7 节和第 9 节分别交付什么。",
-        fallback: "若本场活动本身以宣讲为主，第 9 节可以先不接体验模块，改为待定的客户服务 / 路径诊断 / 答疑承接模块。",
-        records: "模块卡、模块 SOP、服务记录表、学生观察表、咨询承接问题清单。",
+        risk: "如果模块没有内部动作，只是一个主题名，现场会不知道谁做什么、在哪里做、输出什么，也无法交给咨询。",
+        fallback: "若本场活动本身以宣讲为主，第 9 节可选择服务类模块或展示类模块承接，不重复做第二段宣讲。",
+        records: "模块卡、模块 SOP、服务记录表、展示反馈表、学生观察表、咨询承接问题清单。",
         custom: "modules",
         customFull: true
       },
@@ -1586,11 +1615,13 @@
       {
         id: "module-cres-game",
         title: "CRES 项目体验课：AI x Game 制作体验",
-        type: "体验型 / 科技创作",
+        category: "体验类模块",
+        type: "体验类 / 科技创作",
         owner: "蔡老师",
         duration: "标准 60 分钟；压缩版 40 分钟",
         location: "未来楼电脑教室 / AI 工坊",
         capacity: "建议 8-18 名学生；2-3 人一组",
+        open: true,
         goal: "让学生用 Cursor、Codex 等 IDE 进行 vibe coding，结合 Codot/Godot 游戏模板，完成一个带有自己玩法和美术想法的小型游戏 prototype。",
         what: [
           "学生先选择一个基础游戏模板或示例项目。",
@@ -1642,7 +1673,8 @@
       {
         id: "module-ai-perfume",
         title: "AI 调香课",
-        type: "体验型 / 科学艺术",
+        category: "体验类模块",
+        type: "体验类 / 科学艺术",
         owner: "江老师",
         duration: "标准 50-60 分钟；压缩版 35-40 分钟",
         location: "未来楼生化工坊 / 科学实验室",
@@ -1693,6 +1725,118 @@
           "材料不足：两人共用一组材料，但每人保留独立标签和故事卡。",
           "时间不足：老师预先给出 3 个基础配方，学生只做微调、命名和标签。",
           "现场气味过重：减少同时开瓶数量，分批操作，并保持通风。"
+        ]
+      },
+      {
+        id: "module-service-template",
+        title: "服务类模块：宣讲后路径诊断 / 客户服务承接",
+        category: "服务类模块",
+        type: "服务类 / 待定模板",
+        owner: "董老师主责；咨询老师配合",
+        duration: "标准 20-30 分钟；可与咨询转化合并",
+        location: "群贤楼阅览室 / 咨询区",
+        capacity: "按家庭一对一或小组轮转承接",
+        goal: "当活动主目标是中考、BTEC 等宣讲时，第 9 节不重复宣讲，而是把家庭问题转化为可记录、可跟进的服务动作。",
+        what: [
+          "把宣讲后的家庭问题收拢到固定服务台或咨询位。",
+          "用路径诊断表记录学生情况、家庭目标、时间节点和主要顾虑。",
+          "对家庭做初步分层：需要资料、需要测评、需要一对一深聊、需要后续电话。",
+          "现场约定下一步服务动作，例如测评预约、资料补发、课程咨询或到校复访。",
+          "把服务记录交给董老师进入咨询转化和后续跟进。"
+        ],
+        prep: [
+          "T-7：明确本场宣讲后的服务目标，是路径诊断、资料解读、测评预约还是答疑承接。",
+          "T-3：准备服务记录表、路径诊断表、资料包、二维码和预约表。",
+          "T-3：确认咨询老师分工和服务口径，避免每位老师说法不同。",
+          "T-1：按报名名单预判家庭问题，把高关注家庭提前标注。",
+          "D-day：在咨询区摆好桌牌、资料、记录表和二维码，保证家庭知道去哪里。"
+        ],
+        materials: [
+          "路径诊断表、服务记录表、意向分级表。",
+          "课程资料、升学路径图、BTEC 或中考相关资料包。",
+          "预约二维码、资料补发二维码、咨询桌牌。",
+          "签字笔、便签纸、家庭编号贴、资料袋。",
+          "咨询区座位和隐私相对可控的沟通空间。"
+        ],
+        steps: [
+          { time: "0-3 分钟", title: "接住问题", text: "宣讲结束后由董老师或咨询老师说明：接下来可以做路径诊断或资料解读。" },
+          { time: "3-8 分钟", title: "快速分流", text: "按家庭关注点分为课程问题、升学问题、入学问题、测评预约、资料领取。" },
+          { time: "8-18 分钟", title: "服务动作", text: "咨询老师填写服务记录，给出初步建议或补充资料，并明确是否需要一对一。" },
+          { time: "18-25 分钟", title: "确认下一步", text: "现场确认下一步动作、负责人、时间点和联系方式。" },
+          { time: "25-30 分钟", title: "交给咨询", text: "董老师收齐服务记录，把高意向家庭交给第 10 节咨询转化。" }
+        ],
+        outputs: [
+          { title: "服务记录", text: "每个被服务家庭至少有一条问题记录和下一步动作。" },
+          { title: "分层名单", text: "标出需要深聊、需要测评、只需资料、暂缓跟进的家庭。" },
+          { title: "咨询线索", text: "家庭真实顾虑、决策时间点和最适合承接的产品或路径。" }
+        ],
+        consult: [
+          "家庭最关心的是升学路径、课程适配、费用、时间还是孩子能力。",
+          "是否需要测评、试听、深度咨询或再次到访。",
+          "家庭的决策节点和关键阻碍是什么。",
+          "下一步由谁跟进，什么时候跟进。"
+        ],
+        fallback: [
+          "咨询老师不足：只服务高意向家庭，其余家庭扫码预约后续一对一。",
+          "家庭数量过多：先用问题卡收集问题，再按意向等级分层回访。",
+          "现场时间不足：服务动作压缩为资料领取、问题记录、预约下一步。",
+          "问题超出现场回答范围：记录后统一由对应负责人补答。"
+        ]
+      },
+      {
+        id: "module-display-template",
+        title: "展示类模块：作品 / 项目 / 课程成果展示",
+        category: "展示类模块",
+        type: "展示类 / 待定模板",
+        owner: "林老师策展；模块老师讲解；董老师承接",
+        duration: "标准 15-25 分钟；可嵌入参观或咨询前",
+        location: "世青楼1楼大堂 / 未来楼展示点 / 群贤楼阅览室外",
+        capacity: "适合全体家庭流动观看；关键点位有人讲解",
+        goal: "把学校课程、学生作品或项目成果做成可看、可问、可记录的展示动作，而不是只摆物料。",
+        what: [
+          "围绕一个主题布置作品、案例、课程路径或学生成果。",
+          "设置 2-4 个展示点，每个点有明确讲解口径和停留时间。",
+          "引导家庭看一个具体成果，并留下一个问题或兴趣点。",
+          "模块老师或讲解老师回答关键问题，不把展示变成无人看管的海报区。",
+          "把家庭对展示内容的兴趣记录给咨询区。"
+        ],
+        prep: [
+          "T-7：确定展示主题、展示点位和展示材料，不影响大堂动线和正常办公。",
+          "T-3：准备展板、作品说明牌、二维码、案例卡和讲解词。",
+          "T-3：确认展示物保护方式，尤其是易碎或贵重作品。",
+          "T-1：走场确认观看路线、停留点、拍照点和咨询承接点。",
+          "D-day：提前摆放并检查灯光、投屏、标签、桌牌和安全边界。"
+        ],
+        materials: [
+          "展板、易拉宝、作品说明牌、课程路径图、案例卡。",
+          "展示桌、桌布、保护罩、围挡或提示牌。",
+          "二维码牌、问题收集卡、兴趣贴纸或家庭编号贴。",
+          "投屏素材、照片或短视频，用于补充展示。",
+          "拍照点标识和咨询承接桌牌。"
+        ],
+        steps: [
+          { time: "0-3 分钟", title: "带入展示", text: "老师说明展示主题和观看方式，家庭不需要自行找重点。" },
+          { time: "3-12 分钟", title: "点位讲解", text: "按 2-4 个点位讲解作品、项目或课程成果，每个点只讲一个核心信息。" },
+          { time: "12-18 分钟", title: "互动记录", text: "家庭用问题卡、兴趣贴或扫码方式留下关注点。" },
+          { time: "18-22 分钟", title: "拍照归档", text: "拍展示全景、家庭互动、重点作品，作为复盘和后续资料。" },
+          { time: "22-25 分钟", title: "交给咨询", text: "讲解老师把高兴趣家庭和具体关注点交给董老师或咨询老师。" }
+        ],
+        outputs: [
+          { title: "展示反馈", text: "家庭关注了哪些作品、课程或项目，留下了什么问题。" },
+          { title: "影像记录", text: "展示区全景、互动照片、重点作品照片或投屏截图。" },
+          { title: "咨询线索", text: "家庭对课程成果、学生能力培养或项目制学习的兴趣点。" }
+        ],
+        consult: [
+          "家庭对哪个作品、项目或课程路径停留时间最长。",
+          "家庭问的是课程内容、学生能力、升学出口还是入学适配。",
+          "是否需要补发作品集、课程介绍或安排老师进一步解释。",
+          "展示内容是否触发了后续咨询或复访意向。"
+        ],
+        fallback: [
+          "展示物不到位：改用电子投屏、照片墙或案例卡。",
+          "空间不足：减少展示点，只保留一个主视觉点和一个互动记录点。",
+          "现场太拥挤：分批观看，咨询老师在出口处承接问题。",
+          "展示老师临时缺席：使用标准讲解卡，由董老师或机动老师按卡说明。"
         ]
       }
     ];
@@ -1756,22 +1900,22 @@
           <strong>模块接口标准</strong>
           <div class="module-system">
             <div class="module-contract">
-              <div class="contract-step"><b>1</b><strong>先判类型</strong><p>先判断这是宣讲主题、体验模块，还是宣讲后的服务承接。</p></div>
-              <div class="contract-step"><b>2</b><strong>宣讲归宣讲</strong><p>中考宣讲、BTEC 宣讲等纯内容讲解先放第 7 节宣讲子方案。</p></div>
-              <div class="contract-step"><b>3</b><strong>体验进模块</strong><p>有学生动作、现场产出和可观察线索的体验课，放第 9 节模块。</p></div>
-              <div class="contract-step"><b>4</b><strong>服务待定</strong><p>若活动主目标是宣讲，第 9 节可搭配客户服务、路径诊断或答疑承接模块。</p></div>
+              <div class="contract-step"><b>1</b><strong>先判类型</strong><p>先判断第 9 节要接体验、服务还是展示；宣讲主题先归第 7 节。</p></div>
+              <div class="contract-step"><b>2</b><strong>打开模块卡</strong><p>每个模块卡都可以展开，查看具体动作、地点、准备、输出和降级方案。</p></div>
+              <div class="contract-step"><b>3</b><strong>按 SOP 执行</strong><p>模块老师按展开流程执行，不临场自由发挥。</p></div>
+              <div class="contract-step"><b>4</b><strong>交给咨询</strong><p>模块结束必须输出线索，交给董老师或咨询老师承接。</p></div>
             </div>
             <div class="module-contract">
               <div class="contract-step"><b>A</b><strong>体验类模块</strong><p>例如 CRES AI x Game、AI 调香课。必须有参与动作、作品或观察记录。</p></div>
-              <div class="contract-step"><b>B</b><strong>服务类模块</strong><p>宣讲后的路径诊断、资料解读、1v1 问题梳理、测评预约。具体形态待定。</p></div>
-              <div class="contract-step"><b>C</b><strong>宣讲类主题</strong><p>例如中考后升学、BTEC 产品介绍。原则上归第 7 节，不重复放入第 9 节。</p></div>
-              <div class="contract-step"><b>D</b><strong>展示类内容</strong><p>展板、作品、案例陈列更像物料和参观补充，不单独作为模块，除非有互动任务。</p></div>
+              <div class="contract-step"><b>B</b><strong>服务类模块</strong><p>宣讲后的路径诊断、资料解读、1v1 问题梳理、测评预约。</p></div>
+              <div class="contract-step"><b>C</b><strong>展示类模块</strong><p>作品、项目、课程成果展示。必须有讲解动作、互动记录或咨询线索。</p></div>
+              <div class="contract-step"><b>!</b><strong>边界规则</strong><p>中考宣讲、BTEC 宣讲等纯内容讲解归第 7 节，不作为第 9 节模块。</p></div>
             </div>
             <div>
               <strong>每个模块冻结前必须补齐</strong>
               <ul class="module-checklist">
                 <li>模块名称与目标家庭</li>
-                <li>模块类型：体验 / 服务 / 待定</li>
+                <li>模块类型：体验 / 服务 / 展示</li>
                 <li>本模块要解决的核心问题</li>
                 <li>不适合哪些家庭</li>
                 <li>标准时长和人数上限</li>
@@ -1784,22 +1928,22 @@
           </div>
         </div>
         <div class="detail-block wide">
-          <strong>当前已展开模块</strong>
+          <strong>三大模块分类</strong>
           <div class="module-library">
             <article class="module-card">
-              <span class="module-badge">体验型</span>
-              <h4>CRES 项目体验课：AI x Game</h4>
-              <p>蔡老师负责，在未来楼电脑教室 / AI 工坊执行，输出游戏 prototype、创意卡和咨询线索。</p>
+              <span class="module-badge">体验类</span>
+              <h4>学生参与并产出作品</h4>
+              <p>当前已展开：CRES AI x Game、AI 调香课。核心是学生动作、作品结果和观察记录。</p>
             </article>
             <article class="module-card">
-              <span class="module-badge">科学艺术</span>
-              <h4>AI 调香课</h4>
-              <p>江老师负责，在未来楼生化工坊 / 科学实验室执行，输出小样作品、配方卡和咨询线索。</p>
+              <span class="module-badge">服务类</span>
+              <h4>宣讲后承接家庭问题</h4>
+              <p>当前是模板：路径诊断、资料解读、测评预约、答疑承接。核心是服务记录和下一步动作。</p>
             </article>
             <article class="module-card">
-              <span class="module-badge">待定</span>
-              <h4>宣讲后的服务模块</h4>
-              <p>中考宣讲、BTEC 宣讲先放第 7 节；第 9 节是否接客户服务、路径诊断或答疑承接，后续再定。</p>
+              <span class="module-badge">展示类</span>
+              <h4>把成果变成可看可问</h4>
+              <p>当前是模板：学生作品、项目成果、课程案例展示。核心是讲解动作、互动记录和咨询线索。</p>
             </article>
           </div>
         </div>
@@ -1809,19 +1953,21 @@
     const renderList = (items) => `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
 
     const renderModule = (module) => `
-      <article class="module-detail" id="${module.id}">
-        <div class="module-detail-head">
+      <details class="module-detail" id="${module.id}" ${module.open ? "open" : ""}>
+        <summary class="module-detail-head">
           <div>
             <h3>${module.title}</h3>
             <p>${module.goal}</p>
             <div class="module-tags">
+              <span>${module.category}</span>
               <span>${module.type}</span>
               <span>${module.duration}</span>
               <span>${module.capacity}</span>
             </div>
           </div>
           <span class="module-owner">${module.owner}</span>
-        </div>
+          <span class="module-expand">展开流程</span>
+        </summary>
         <div class="module-detail-body">
           <div class="module-spec-grid">
             <div class="module-spec"><strong>具体做什么</strong><span>${module.what[0]}</span></div>
@@ -1874,7 +2020,7 @@
             ${renderList(module.fallback)}
           </div>
         </div>
-      </article>
+      </details>
     `;
 
     const renderStage = (stage) => `
