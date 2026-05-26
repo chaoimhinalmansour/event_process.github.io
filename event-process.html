@@ -1338,8 +1338,8 @@
             </tr>
             <tr>
               <td>模块卡 / 模块冻结表</td>
-              <td>模块名称、模块类型、目标家庭、核心问题、活动形式、标准时长、人数上限、场地设备、模块老师、物料、输出线索、咨询承接问题、降级方案</td>
-              <td>区分体验模块、服务模块和展示模块，保证第 9 节不和第 7 节宣讲重复</td>
+              <td>版本号、状态、模块名称、模块类型、适合人群、模块目标、老师分工、场地人数、物料设备、前置输入、标准动作、交付输出、验收标准、风险降级、咨询承接</td>
+              <td>T-7 冻结模块，T-3 生成物料和人员检查项，D-day 按卡执行，D+1/D+2 复盘更新版本</td>
               <td>模块老师填写；林老师确认方案；董老师确认承接</td>
             </tr>
             <tr>
@@ -1526,18 +1526,18 @@
         id: 9,
         title: "模块",
         owner: "模块老师",
-        deadline: "随具体模块单独冻结",
+        deadline: "T-7 模块卡冻结；T-3 场地、物料、老师确认",
         duration: "待定",
         location: "根据模块决定",
         goal: "把第 9 节定义成可替换插件位：暂定三大模块为体验类、服务类、展示类；纯宣讲主题先归第 7 节。",
         flow: ["判断本场需要哪类模块", "打开对应模块卡查看内部动作", "按模块 SOP 执行并形成输出", "把线索交给董老师进入咨询"],
-        input: ["模块类型", "适用人群", "模块老师", "场地和物料", "咨询承接问题"],
-        actions: ["先判断内容属于体验、服务还是展示", "体验类模块重点管理学生动作和作品输出", "服务类模块重点承接家庭问题和下一步动作", "展示类模块重点管理展示点位、讲解动作和互动记录"],
+        input: ["模块卡 12 项字段", "模块类型", "适用人群", "模块老师", "场地和物料", "咨询承接问题"],
+        actions: ["先判断内容属于体验、服务还是展示", "T-7 冻结模块卡版本", "T-3 按模块卡核验场地、物料、老师和记录表", "D-day 按模块卡执行内部动作", "结束时把输出线索交给咨询区"],
         output: ["体验作品 / 服务记录 / 展示反馈", "家庭关注问题", "学生表现或兴趣线索", "咨询承接点"],
-        acceptance: ["第 9 节没有和第 7 节宣讲重复", "模块按时结束", "至少形成一条可咨询线索", "能自然进入咨询转化"],
+        acceptance: ["模块卡 12 项字段已填全并冻结", "第 9 节没有和第 7 节宣讲重复", "模块按时结束", "至少形成一条可咨询线索", "能自然进入咨询转化"],
         risk: "如果模块没有内部动作，只是一个主题名，现场会不知道谁做什么、在哪里做、输出什么，也无法交给咨询。",
         fallback: "若本场活动本身以宣讲为主，第 9 节可选择服务类模块或展示类模块承接，不重复做第二段宣讲。",
-        records: "模块卡、模块 SOP、服务记录表、展示反馈表、学生观察表、咨询承接问题清单。",
+        records: "模块卡版本、模块 SOP、服务记录表、展示反馈表、学生观察表、咨询承接问题清单。",
         custom: "modules",
         customFull: true
       },
@@ -1925,6 +1925,56 @@
                 <li>咨询承接问题和记录字段</li>
               </ul>
             </div>
+          </div>
+        </div>
+        <div class="detail-block wide">
+          <strong>模块卡 12 项标准字段</strong>
+          <div class="module-library">
+            <article class="module-card">
+              <span class="module-badge">定义</span>
+              <h4>1-4：先定义模块</h4>
+              <p>模块名称、模块类型、适合人群、模块目标。先判断它为什么存在，给谁做。</p>
+            </article>
+            <article class="module-card">
+              <span class="module-badge">资源</span>
+              <h4>5-8：再锁定资源</h4>
+              <p>模块老师与分工、场地与人数、物料与设备、前置输入。决定能不能执行。</p>
+            </article>
+            <article class="module-card">
+              <span class="module-badge">执行</span>
+              <h4>9-10：写清动作和输出</h4>
+              <p>标准动作、交付输出。把“体验一下”拆成老师和学生能照做的步骤。</p>
+            </article>
+            <article class="module-card">
+              <span class="module-badge">验收</span>
+              <h4>11-12：控制风险和收口</h4>
+              <p>验收标准、风险与降级方案。确保完成标准明确，出问题有备用打法。</p>
+            </article>
+            <article class="module-card">
+              <span class="module-badge">承接</span>
+              <h4>必须补充：咨询承接</h4>
+              <p>每张模块卡都要写清楚：模块结束后，哪些记录、作品、问题交给董老师或咨询老师。</p>
+            </article>
+            <article class="module-card">
+              <span class="module-badge">版本</span>
+              <h4>必须补充：版本与状态</h4>
+              <p>模块卡要有版本号、负责人、冻结时间、状态：草稿 / 待确认 / 已冻结 / 复盘后更新。</p>
+            </article>
+          </div>
+        </div>
+        <div class="detail-block wide">
+          <strong>模块卡接入主轴的工程规则</strong>
+          <div class="module-contract">
+            <div class="contract-step"><b>T-14</b><strong>策划选择</strong><p>第 0 节确定活动目标时，同时选择模块类型和模块卡草案。</p></div>
+            <div class="contract-step"><b>T-7</b><strong>版本冻结</strong><p>模块卡 12 项字段填全后冻结，未冻结不进入正式邀约。</p></div>
+            <div class="contract-step"><b>T-3</b><strong>资源核验</strong><p>第 1 节按模块卡生成物料、场地、老师、记录表检查项。</p></div>
+            <div class="contract-step"><b>D-day</b><strong>按卡执行</strong><p>第 9 节现场只按冻结卡执行，不临时重写模块流程。</p></div>
+          </div>
+          <div class="module-contract">
+            <div class="contract-step"><b>交付</b><strong>进入咨询</strong><p>第 10 节只承接模块卡定义过的输出：作品、记录、问题、评分、服务结果。</p></div>
+            <div class="contract-step"><b>复盘</b><strong>反写模板</strong><p>第 13 节复盘后更新模块卡版本，沉淀成下一场可复用模块。</p></div>
+            <div class="contract-step"><b>门禁</b><strong>缺项不执行</strong><p>缺少适合人群、场地物料、标准动作、交付输出、验收标准任一项，不能视为完整模块。</p></div>
+            <div class="contract-step"><b>归档</b><strong>形成模块库</strong><p>每个完成复盘的模块进入模块库，后续活动直接复制、改版本、再冻结。</p></div>
           </div>
         </div>
         <div class="detail-block wide">
