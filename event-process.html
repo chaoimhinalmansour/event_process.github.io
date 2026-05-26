@@ -550,6 +550,10 @@
       padding: 18px;
     }
 
+    .stage-custom-full {
+      padding: 0 18px 18px;
+    }
+
     .goal-box {
       padding: 14px;
       border-left: 4px solid var(--green);
@@ -712,6 +716,106 @@
       min-width: 760px;
     }
 
+    .module-system {
+      display: grid;
+      gap: 16px;
+    }
+
+    .module-contract {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .contract-step,
+    .module-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .contract-step {
+      padding: 12px;
+    }
+
+    .contract-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      margin-bottom: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      font-size: 12px;
+    }
+
+    .contract-step strong,
+    .module-card h4 {
+      display: block;
+      margin-bottom: 5px;
+      color: #1f2d2a;
+      font-size: 15px;
+    }
+
+    .contract-step p,
+    .module-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .module-library {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .module-card {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+    }
+
+    .module-card h4 {
+      margin-bottom: 0;
+    }
+
+    .module-badge {
+      width: fit-content;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .module-card dl {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+    }
+
+    .module-card dt {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .module-card dd {
+      margin: 2px 0 0;
+      color: #303835;
+      font-size: 13px;
+    }
+
+    .module-checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 18px;
+      margin-top: 8px;
+      padding-left: 18px;
+    }
+
     .footer-note {
       margin-top: 28px;
       padding: 16px;
@@ -727,7 +831,10 @@
       .lane-grid,
       .process-map,
       .stage-body,
-      .notice-row {
+      .notice-row,
+      .module-contract,
+      .module-library,
+      .module-checklist {
         grid-template-columns: 1fr;
       }
 
@@ -928,7 +1035,7 @@
     <section aria-labelledby="map-title">
       <div class="section-head">
         <h2 id="map-title">主流程地图</h2>
-        <span class="hint">把 13 个节点放回生产线，而不是散落成清单</span>
+        <span class="hint">把 14 个节点放回生产线，而不是散落成清单</span>
       </div>
       <div class="process-map">
         <article class="phase">
@@ -1010,6 +1117,12 @@
               <td>物品名称、数量、有效期、检查人、缺口、补充状态</td>
               <td>只用于现场轻微突发情况的基础应急，不替代专业医疗处理</td>
               <td>董老师清点；现场按应急情况处理</td>
+            </tr>
+            <tr>
+              <td>模块卡 / 模块冻结表</td>
+              <td>模块名称、目标家庭、核心问题、活动形式、标准时长、人数上限、场地设备、模块老师、物料、输出线索、咨询承接问题、降级方案</td>
+              <td>保证每场活动只替换模块，不改主轴；让模块结束后能自然进入咨询</td>
+              <td>模块老师填写；林老师确认方案；董老师确认承接</td>
             </tr>
             <tr>
               <td>咨询记录表</td>
@@ -1198,15 +1311,17 @@
         deadline: "随具体模块单独冻结",
         duration: "待定",
         location: "根据模块决定",
-        goal: "把 CREST、BTEC、中考后升学等业务内容作为插件接入，但不改变主轴。",
-        flow: ["模块老师接过场", "按模块 SOP 执行", "形成体验结果或问题线索", "交给咨询环节承接"],
-        input: ["模块名称", "适用人群", "模块老师", "场地和物料", "承接咨询点"],
-        actions: ["按模块 SOP 执行", "不改变主轴顺序", "结束时产出可被咨询承接的结果", "将观察或问题交给董老师"],
-        output: ["模块体验结果", "家庭问题", "学生表现或兴趣线索", "咨询承接点"],
-        acceptance: ["模块按时结束", "模块结果能被家长理解", "能自然进入咨询转化"],
-        risk: "模块老师若只关注内容，不交付咨询线索，主轴会在模块结束后断流。",
-        fallback: "模块设备或老师异常时，启用低配版讲解、案例、纸笔任务或问答。",
-        records: "模块 SOP、模块反馈表、学生观察表。"
+        goal: "把每一场具体活动做成可替换插件：主轴不变，只替换模块卡、老师、物料和咨询承接口径。",
+        flow: ["确认本场模块卡", "模块老师从参观后接场", "按模块 SOP 完成内容交付", "输出可咨询线索并交给董老师"],
+        input: ["模块卡", "适用人群", "模块老师", "场地和物料", "咨询承接问题"],
+        actions: ["开场先说明本模块要解决的家庭问题", "按模块 SOP 控制节奏和参与方式", "现场记录学生表现、家长问题和意向信号", "结束时用固定话术交给咨询区"],
+        output: ["模块体验结果", "家庭关注问题", "学生表现或兴趣线索", "咨询承接点"],
+        acceptance: ["模块按时结束", "家庭知道本模块和升学/课程选择的关系", "至少形成一条可咨询线索", "能自然进入咨询转化"],
+        risk: "模块如果只像一段内容展示，而没有明确输入、输出和咨询线索，主轴会在模块结束后断流。",
+        fallback: "模块设备或老师异常时，启用低配版讲解、案例、纸笔任务或问答，但仍必须输出咨询承接点。",
+        records: "模块卡、模块 SOP、模块反馈表、学生观察表、咨询承接问题清单。",
+        custom: "modules",
+        customFull: true
       },
       {
         id: 10,
@@ -1331,6 +1446,70 @@
             <li>桌面：流程牌、二维码牌、资料摆放与主题风格一致。</li>
           </ul>
         </div>
+      `,
+      modules: `
+        <div class="detail-block wide">
+          <strong>模块接口标准</strong>
+          <div class="module-system">
+            <div class="module-contract">
+              <div class="contract-step"><b>1</b><strong>模块前输入</strong><p>来自宣讲和未来楼参观的共同语境，家庭已经知道为什么继续听。</p></div>
+              <div class="contract-step"><b>2</b><strong>模块中交付</strong><p>用体验、案例、路径图或产品说明，把一个具体问题讲透或做出来。</p></div>
+              <div class="contract-step"><b>3</b><strong>模块后输出</strong><p>留下学生表现、家庭问题、关注路径和意向信号，不能只留下“听过”。</p></div>
+              <div class="contract-step"><b>4</b><strong>交给咨询</strong><p>模块老师把关键线索交给董老师，咨询老师按家庭编号继续承接。</p></div>
+            </div>
+            <div>
+              <strong>每个模块冻结前必须补齐</strong>
+              <ul class="module-checklist">
+                <li>模块名称与目标家庭</li>
+                <li>本模块要解决的核心问题</li>
+                <li>不适合哪些家庭</li>
+                <li>标准时长和人数上限</li>
+                <li>场地、座位和设备要求</li>
+                <li>老师分工和接场话术</li>
+                <li>物料、讲义、任务单或案例</li>
+                <li>咨询承接问题和记录字段</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="detail-block wide">
+          <strong>首批模块库</strong>
+          <div class="module-library">
+            <article class="module-card">
+              <span class="module-badge">体验型</span>
+              <h4>CREST 体验课</h4>
+              <p>让家庭看到孩子在项目式任务里的理解力、表达力和兴趣点。</p>
+              <dl>
+                <div><dt>适用家庭</dt><dd>关注国际课程、科学探究、项目制学习和孩子适配度的家庭。</dd></div>
+                <div><dt>建议结构</dt><dd>项目导入 5-8 分钟；体验任务 25-35 分钟；成果展示和反馈 10 分钟。</dd></div>
+                <div><dt>交付输出</dt><dd>学生观察记录、任务结果、家长问题、是否适合继续深度体验。</dd></div>
+                <div><dt>咨询承接</dt><dd>围绕孩子能力表现、课程路径、后续培养方案进入咨询。</dd></div>
+              </dl>
+            </article>
+            <article class="module-card">
+              <span class="module-badge">路径型</span>
+              <h4>中考之后，多元途径升学</h4>
+              <p>帮助中考后家庭把升学选择从焦虑变成可比较的路径。</p>
+              <dl>
+                <div><dt>适用家庭</dt><dd>中考后或中考前后摇摆，想了解普高、国际路径、职业路径差异的家庭。</dd></div>
+                <div><dt>建议结构</dt><dd>路径地图 15 分钟；案例对比 15 分钟；家庭选择清单和问答 15-20 分钟。</dd></div>
+                <div><dt>交付输出</dt><dd>家庭当前分流点、担忧点、时间节点、最可能咨询的路径。</dd></div>
+                <div><dt>咨询承接</dt><dd>围绕成绩区间、目标国家/专业、预算、入学时间做一对一判断。</dd></div>
+              </dl>
+            </article>
+            <article class="module-card">
+              <span class="module-badge">产品型</span>
+              <h4>BTEC 产品介绍</h4>
+              <p>把 BTEC 的课程结构、适配学生、升学出口和学校支持讲清楚。</p>
+              <dl>
+                <div><dt>适用家庭</dt><dd>关注职业教育、应用型课程、作品集或英联邦升学路径的家庭。</dd></div>
+                <div><dt>建议结构</dt><dd>产品框架 15 分钟；课程样例 10-15 分钟；升学案例和问答 15 分钟。</dd></div>
+                <div><dt>交付输出</dt><dd>家长对 BTEC 的核心疑问、适配判断、是否需要课程顾问深聊。</dd></div>
+                <div><dt>咨询承接</dt><dd>围绕课程难度、评估方式、升学出口、与学生兴趣的匹配度继续咨询。</dd></div>
+              </dl>
+            </article>
+          </div>
+        </div>
       `
     };
 
@@ -1363,7 +1542,7 @@
               <div class="detail-block"><strong>标准动作</strong>${renderList(stage.actions)}</div>
               <div class="detail-block"><strong>交付输出</strong>${renderList(stage.output)}</div>
               <div class="detail-block"><strong>验收标准</strong>${renderList(stage.acceptance)}</div>
-              ${stage.custom ? customSections[stage.custom] : ""}
+              ${stage.custom && !stage.customFull ? customSections[stage.custom] : ""}
             </div>
             <div class="notice-row">
               <div class="notice risk"><strong>风险点</strong><p>${stage.risk}</p></div>
@@ -1372,6 +1551,7 @@
             <div class="notice" style="margin-top: 12px;"><strong>记录位置</strong><p>${stage.records}</p></div>
           </div>
         </div>
+        ${stage.custom && stage.customFull ? `<div class="stage-custom-full">${customSections[stage.custom]}</div>` : ""}
       </article>
     `;
 
