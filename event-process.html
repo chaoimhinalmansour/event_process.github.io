@@ -32,10 +32,14 @@
 
     html {
       scroll-behavior: smooth;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     body {
       margin: 0;
+      max-width: 100%;
+      overflow-x: hidden;
       background:
         linear-gradient(180deg, #f8faf9 0%, var(--bg) 240px, #eef3f1 100%);
       color: var(--ink);
@@ -344,6 +348,46 @@
       max-width: var(--max);
       margin: 0 auto;
       padding: 8px 22px 9px;
+    }
+
+    .sticky-theme-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .sticky-theme-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--green);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .theme-switch.compact {
+      justify-content: flex-start;
+      gap: 6px;
+    }
+
+    .theme-switch.compact button {
+      min-width: 102px;
+      min-height: 32px;
+      padding: 5px 9px;
+      box-shadow: 0 6px 14px rgba(25, 33, 31, 0.045);
+    }
+
+    .theme-switch.compact strong {
+      font-size: 12px;
+    }
+
+    .theme-switch.compact span {
+      display: none;
     }
 
     .flow {
@@ -897,9 +941,10 @@
 
     .stage-theme-diff {
       margin-top: 14px;
-      border: 1px solid rgba(12, 114, 105, 0.18);
+      border: 1px solid rgba(12, 114, 105, 0.32);
       border-radius: var(--radius);
-      background: linear-gradient(180deg, #ffffff 0%, #fbfdfc 100%);
+      background: linear-gradient(180deg, #ffffff 0%, var(--green-soft) 180%);
+      box-shadow: 0 16px 34px rgba(20, 31, 28, 0.1);
       overflow: hidden;
     }
 
@@ -910,6 +955,7 @@
       gap: 10px;
       padding: 10px 12px;
       border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
       color: var(--green);
       font-size: 13px;
     }
@@ -928,6 +974,11 @@
 
     .theme-diff-item {
       min-width: 0;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 10px 22px rgba(25, 33, 31, 0.06);
     }
 
     .theme-diff-item b {
@@ -941,11 +992,62 @@
       font-size: 12px;
     }
 
+    .theme-diff-item.diff-add {
+      border-color: rgba(22, 113, 141, 0.32);
+      box-shadow: 0 14px 28px rgba(22, 113, 141, 0.12);
+    }
+
+    .theme-diff-item.diff-replace {
+      border-color: rgba(49, 95, 149, 0.32);
+      box-shadow: 0 14px 28px rgba(49, 95, 149, 0.12);
+    }
+
+    .theme-diff-item.diff-strengthen {
+      border-color: rgba(183, 121, 31, 0.34);
+      box-shadow: 0 14px 28px rgba(183, 121, 31, 0.13);
+    }
+
+    .theme-diff-item.diff-avoid {
+      border-color: rgba(200, 90, 67, 0.34);
+      box-shadow: 0 14px 28px rgba(200, 90, 67, 0.12);
+    }
+
+    .theme-diff-item.diff-add b {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .theme-diff-item.diff-replace b {
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .theme-diff-item.diff-strengthen b {
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+
+    .theme-diff-item.diff-avoid b {
+      background: var(--coral-soft);
+      color: var(--coral);
+    }
+
     .theme-diff-item p {
       margin-top: 6px;
       color: #34403d;
       font-size: 13px;
       line-height: 1.45;
+    }
+
+    .theme-keyword {
+      display: inline;
+      padding: 0 3px 1px;
+      border: 1px solid rgba(183, 121, 31, 0.26);
+      border-radius: 4px;
+      background: #fff2b7;
+      color: #5a3b05;
+      font-weight: 800;
+      box-shadow: 0 5px 12px rgba(183, 121, 31, 0.13);
     }
 
     .table-wrap {
@@ -1371,6 +1473,23 @@
         display: block;
       }
 
+      .sticky-theme-row {
+        grid-template-columns: 1fr;
+      }
+
+      .theme-switch.compact {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .theme-switch.compact button {
+        min-width: 0;
+      }
+
+      .flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .hint {
         margin-top: 4px;
         text-align: left;
@@ -1415,6 +1534,14 @@
 
   <nav class="sticky-nav" aria-label="活动主流程导航">
     <div class="sticky-inner">
+      <div class="sticky-theme-row">
+        <span class="sticky-theme-label">版本</span>
+        <div class="theme-switch compact" role="tablist" aria-label="顶部主题版本">
+          <button type="button" data-theme-option="normal" class="is-active"><strong>普通版</strong><span>常规到访活动</span></button>
+          <button type="button" data-theme-option="ai"><strong>AI 科技版</strong><span>AI / CRES / 体验课</span></button>
+          <button type="button" data-theme-option="exam"><strong>中考赛道版</strong><span>多元升学路径</span></button>
+        </div>
+      </div>
       <div class="flow">
         <a href="#stage-0"><span class="flow-num">0</span><span class="flow-label">策划确认</span></a>
         <a href="#stage-1"><span class="flow-num">1</span><span class="flow-label">物料 / 场地 / 安保</span></a>
@@ -2371,6 +2498,10 @@
     if (!themeVersions[activeTheme]) activeTheme = "normal";
 
     const renderList = (items) => `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+    const highlightTerms = ["物料", "贴纸", "海报", "投屏", "易拉宝", "展板", "桌牌", "流程牌", "资料", "记录表", "签到表", "评分卡", "路径图", "路径诊断表", "时间规划表", "预约单", "作品", "截图", "录屏", "大电视", "工牌", "任务", "咨询", "分组", "小组编号", "身份贴", "资料包"];
+    const highlightPattern = new RegExp(`(${highlightTerms.map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`, "g");
+    const highlightChangeText = (text) => text.replace(highlightPattern, '<mark class="theme-keyword">$1</mark>');
+    const renderHighlightedList = (items) => `<ul>${items.map((item) => `<li>${highlightChangeText(item)}</li>`).join("")}</ul>`;
 
     const renderThemePanel = () => {
       const theme = themeVersions[activeTheme];
@@ -2388,7 +2519,7 @@
             ${Object.entries(diffLabels).map(([key, label]) => `
               <div class="delta-card">
                 <strong>${label}</strong>
-                ${renderList(theme.overview[key])}
+                ${renderHighlightedList(theme.overview[key])}
               </div>
             `).join("")}
           </div>
@@ -2406,9 +2537,9 @@
           <strong>本主题与普通版的不同 <span>${theme.label}</span></strong>
           <div class="stage-theme-grid">
             ${Object.entries(diffLabels).map(([key, label]) => `
-              <div class="theme-diff-item">
+              <div class="theme-diff-item diff-${key}">
                 <b>${label}</b>
-                <p>${diff[key]}</p>
+                <p>${highlightChangeText(diff[key])}</p>
               </div>
             `).join("")}
           </div>
