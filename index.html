@@ -24,6 +24,7 @@
       --shadow: 0 18px 46px rgba(20, 31, 28, 0.09);
       --radius: 8px;
       --max: 1180px;
+      --fixed-nav-height: 140px;
     }
 
     * {
@@ -40,6 +41,7 @@
       margin: 0;
       max-width: 100%;
       overflow-x: hidden;
+      padding-top: var(--fixed-nav-height);
       background:
         linear-gradient(180deg, #f8faf9 0%, var(--bg) 240px, #eef3f1 100%);
       color: var(--ink);
@@ -336,12 +338,15 @@
     }
 
     .sticky-nav {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 20;
+      left: 0;
+      right: 0;
+      z-index: 80;
       background: rgba(244, 246, 244, 0.96);
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(12px);
+      box-shadow: 0 14px 30px rgba(25, 33, 31, 0.1);
     }
 
     .sticky-inner {
@@ -738,7 +743,7 @@
     }
 
     .stage {
-      scroll-margin-top: 96px;
+      scroll-margin-top: calc(var(--fixed-nav-height) + 18px);
       border: 1px solid rgba(12, 114, 105, 0.14);
       border-radius: var(--radius);
       background: var(--panel);
@@ -1503,6 +1508,7 @@
 
       body {
         background: #fff;
+        padding-top: 0;
       }
 
       .panel,
@@ -2662,6 +2668,12 @@
     const links = Array.from(document.querySelectorAll(".flow a"));
     let observer;
 
+    const updateFixedNavHeight = () => {
+      const nav = document.querySelector(".sticky-nav");
+      const height = nav ? Math.ceil(nav.getBoundingClientRect().height) : 0;
+      document.documentElement.style.setProperty("--fixed-nav-height", `${height}px`);
+    };
+
     const setActive = (id) => {
       links.forEach((link) => {
         link.classList.toggle("active", link.getAttribute("href") === "#" + id);
@@ -2698,6 +2710,7 @@
         button.classList.toggle("is-active", selected);
         button.setAttribute("aria-selected", String(selected));
       });
+      updateFixedNavHeight();
       observeSections();
     };
 
@@ -2720,6 +2733,9 @@
         }
       });
     });
+
+    window.addEventListener("resize", updateFixedNavHeight);
+    window.addEventListener("load", updateFixedNavHeight);
   </script>
 </body>
 </html>
