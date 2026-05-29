@@ -123,6 +123,214 @@
       font-size: 13px;
     }
 
+    body[data-theme="ai"] {
+      --bg: #eef5f7;
+      --panel: #fbfeff;
+      --ink: #13202a;
+      --muted: #61727e;
+      --line: #c9dbe4;
+      --dark: #071923;
+      --green: #16718d;
+      --green-soft: #e1f3f7;
+      --blue: #2f62c6;
+      --blue-soft: #e8f0ff;
+      --coral: #b85d4e;
+      --coral-soft: #fff0ec;
+      --amber: #a56d13;
+      --amber-soft: #fff5dc;
+      --gray-soft: #eef4f6;
+    }
+
+    body[data-theme="exam"] {
+      --bg: #f5f3ed;
+      --panel: #fffdf8;
+      --ink: #1d2430;
+      --muted: #6f6a61;
+      --line: #ddd3bf;
+      --dark: #101827;
+      --green: #274c77;
+      --green-soft: #e8eef6;
+      --blue: #365f91;
+      --blue-soft: #eaf0f7;
+      --coral: #a84c3e;
+      --coral-soft: #fff0eb;
+      --amber: #9f6a1d;
+      --amber-soft: #fff1d7;
+      --gray-soft: #eee9dd;
+    }
+
+    body[data-theme="ai"] .topbar {
+      background:
+        radial-gradient(circle at 14% 18%, rgba(47, 98, 198, 0.34), transparent 30%),
+        linear-gradient(135deg, #081822 0%, #0c2635 50%, #0d4954 100%);
+    }
+
+    body[data-theme="exam"] .topbar {
+      background:
+        linear-gradient(135deg, #101827 0%, #192b45 58%, #4b3518 100%);
+    }
+
+    .theme-console {
+      max-width: var(--max);
+      margin: 18px auto 0;
+      padding: 0 22px;
+    }
+
+    .theme-console-inner {
+      border: 1px solid rgba(12, 114, 105, 0.16);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .theme-console-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: end;
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(248, 251, 250, 0.96));
+    }
+
+    .theme-console-head h2 {
+      font-size: 22px;
+    }
+
+    .theme-console-head p {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .theme-switch {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .theme-switch button {
+      min-width: 128px;
+      min-height: 52px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+    }
+
+    .theme-switch button:hover,
+    .theme-switch button.is-active {
+      border-color: var(--green);
+      background: var(--green-soft);
+      transform: translateY(-1px);
+    }
+
+    .theme-switch strong,
+    .theme-switch span {
+      display: block;
+    }
+
+    .theme-switch strong {
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .theme-switch span {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.25;
+    }
+
+    .theme-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 16px;
+      padding: 18px;
+    }
+
+    .theme-brief,
+    .theme-delta-overview {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfb;
+      padding: 14px;
+    }
+
+    .theme-brief h3,
+    .theme-delta-overview h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .theme-brief p {
+      color: #34403d;
+      font-size: 14px;
+    }
+
+    .theme-palette {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .theme-palette span {
+      min-width: 58px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .delta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .delta-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 10px;
+    }
+
+    .delta-card strong {
+      display: block;
+      color: var(--green);
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .delta-card ul {
+      padding-left: 16px;
+    }
+
+    .delta-card li {
+      color: #34403d;
+      font-size: 13px;
+    }
+
     .sticky-nav {
       position: sticky;
       top: 0;
@@ -687,6 +895,59 @@
       font-size: 14px;
     }
 
+    .stage-theme-diff {
+      margin-top: 14px;
+      border: 1px solid rgba(12, 114, 105, 0.18);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdfc 100%);
+      overflow: hidden;
+    }
+
+    .stage-theme-diff > strong {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      color: var(--green);
+      font-size: 13px;
+    }
+
+    .stage-theme-diff > strong span {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .stage-theme-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .theme-diff-item {
+      min-width: 0;
+    }
+
+    .theme-diff-item b {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .theme-diff-item p {
+      margin-top: 6px;
+      color: #34403d;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
     .table-wrap {
       overflow-x: auto;
       border: 1px solid var(--line);
@@ -1035,8 +1296,12 @@
       .overview-grid,
       .lane-grid,
       .process-map,
+      .theme-console-head,
+      .theme-panel,
+      .delta-grid,
       .stage-body,
       .notice-row,
+      .stage-theme-grid,
       .module-contract,
       .module-library,
       .module-checklist,
@@ -1078,6 +1343,7 @@
 
     @media (max-width: 640px) {
       .topbar-inner,
+      .theme-console,
       .sticky-inner,
       main {
         padding-left: 14px;
@@ -1131,7 +1397,7 @@
     }
   </style>
 </head>
-<body>
+<body data-theme="normal">
   <header class="topbar">
     <div class="topbar-inner">
       <p class="kicker">校园活动主流程 / v3.1</p>
@@ -1167,6 +1433,24 @@
       </div>
     </div>
   </nav>
+
+  <section class="theme-console" aria-labelledby="theme-title">
+    <div class="theme-console-inner">
+      <div class="theme-console-head">
+        <div>
+          <p class="eyebrow">Theme Version</p>
+          <h2 id="theme-title">主题版本切换</h2>
+          <p>普通版是基线。切换主题后，页面视觉会变化，每个环节也会显示“相较普通版”的不同点，方便老师知道这场活动到底要多做什么、换掉什么、强调什么。</p>
+        </div>
+        <div class="theme-switch" role="tablist" aria-label="主题版本">
+          <button type="button" data-theme-option="normal" class="is-active"><strong>普通版</strong><span>常规到访活动</span></button>
+          <button type="button" data-theme-option="ai"><strong>AI 科技版</strong><span>AI / CRES / 体验课</span></button>
+          <button type="button" data-theme-option="exam"><strong>中考赛道版</strong><span>多元升学路径</span></button>
+        </div>
+      </div>
+      <div id="theme-panel" class="theme-panel"></div>
+    </div>
+  </section>
 
   <main>
     <section aria-labelledby="overview-title">
@@ -1365,6 +1649,81 @@
   </main>
 
   <script>
+    const themeVersions = {
+      normal: {
+        label: "普通版",
+        subtitle: "常规到访活动",
+        headline: "普通版：把活动做清楚、做稳定",
+        body: "适合常规开放日、普通体验课、产品说明会。重点是动线清楚、老师分工清楚、记录完整、家庭体验稳定。",
+        palette: ["清晰", "稳定", "学校感", "低干扰"],
+        overview: {
+          add: ["不额外增加主题动作，按主流程完整跑完。"],
+          replace: ["不替换核心物料，只保持统一视觉和清楚指引。"],
+          strengthen: ["加强接待、签到、咨询记录和离场收口。"],
+          avoid: ["避免过度包装，让老师先把基本动作做稳。"]
+        },
+        stageDiffs: {}
+      },
+      ai: {
+        label: "AI 科技版",
+        subtitle: "AI / CRES / 体验课",
+        headline: "AI 科技版：让家庭感受到未来感和学生真实创作",
+        body: "适合 CRES、AI x Game、AI 调香、未来课程体验。重点不是把页面变蓝，而是把每个环节都变成“任务、作品、展示、观察、咨询承接”。",
+        palette: ["未来感", "任务感", "作品感", "互动感"],
+        overview: {
+          add: ["学生任务身份、作品编号、作品截图或录屏、评分卡、学生表现观察记录。"],
+          replace: ["普通海报换成任务型海报，普通开场换成挑战任务发布。"],
+          strengthen: ["未来楼参观突出未来学习空间，模块必须有可见作品或过程记录。"],
+          avoid: ["避免只有科技风视觉，没有学生动手和作品输出。"]
+        },
+        stageDiffs: {
+          0: { add: "把主题定成任务型表达，例如 Build Your Game 或 AI 创作挑战。", replace: "把普通活动目标改成作品目标：学生今天要完成什么。", strengthen: "提前确认作品展示方式、评分方式和拍照留存方式。", avoid: "避免只写 AI 主题，但没有具体体验任务。" },
+          1: { add: "增加任务海报、作品展示板、评分卡、作品编号贴、投屏素材。", replace: "普通流程牌换成任务进度牌，让家庭知道从签到到作品展示的路径。", strengthen: "大电视播放游戏画面、AI 作品、课程关键词，不只放静态海报。", avoid: "避免物料只有蓝色科技感，没有任务说明。" },
+          2: { add: "提醒海报突出孩子会完成一个小作品，并说明是否需要自带设备。", replace: "普通邀约话术换成“孩子将参与创作任务”。", strengthen: "提前确认学生年级、电脑基础、是否能独立操作。", avoid: "避免把 AI 体验说成纯讲座，降低到场期待。" },
+          3: { add: "入口海报使用 AI 体验主题，并设置学生任务身份提示。", replace: "普通接待口径换成“欢迎参加今天的创作挑战”。", strengthen: "接待老师主动确认孩子姓名和分组，减少后面分组混乱。", avoid: "避免入口只做指路，没有活动氛围。" },
+          4: { add: "签到贴纸增加 Builder、Designer、Tester 等任务身份或小组编号。", replace: "普通姓名贴替换为姓名加任务身份贴。", strengthen: "同时记录学生作品编号，方便后续截图和咨询。", avoid: "避免贴纸太花导致姓名和分组看不清。" },
+          5: { add: "休息区播放作品预热视频，放置 AI 工具和课程关键词展示。", replace: "普通等待区换成预热区，让孩子先看到今天要做什么。", strengthen: "老师在休息区可以轻问孩子兴趣：游戏、美术、剧情、AI 工具。", avoid: "避免家长只等待，孩子无事可做。" },
+          6: { add: "开场发布任务：今天要做出一个能展示的小游戏或作品概念。", replace: "普通流程介绍换成任务说明、分组规则、作品展示规则。", strengthen: "讲清工具使用边界和现场安全规则。", avoid: "避免开场讲太多学校介绍，压缩学生动手时间。" },
+          7: { add: "宣讲里加入 AI 学习、项目制学习和作品表达的关系。", replace: "普通价值介绍换成“为什么孩子要学会用工具表达想法”。", strengthen: "用 1 到 2 个真实作品案例帮助家长理解。", avoid: "避免堆技术名词，家长听不出孩子能获得什么。" },
+          8: { add: "未来楼参观重点看未来学习空间、创作空间和项目展示空间。", replace: "普通参观讲解换成“这些空间如何支持学生做项目”。", strengthen: "引导家庭观察学习环境和工具环境。", avoid: "避免参观变成普通看楼，和 AI 体验断开。" },
+          9: { add: "模块必须产出作品、作品修改记录、评分卡和老师观察记录。", replace: "普通模块流程换成挑战、创作、展示、互评。", strengthen: "学生要有动手时间，老师记录兴趣点和能力点。", avoid: "避免老师演示完就结束，学生没有真实输出。" },
+          10: { add: "咨询承接学生作品、兴趣方向、工具使用表现和后续课程路径。", replace: "普通咨询问题换成“孩子适不适合 AI 项目制学习”。", strengthen: "高意向家庭可用作品截图作为沟通入口。", avoid: "避免只问家长意向，不谈孩子现场表现。" },
+          11: { add: "离场时说明作品截图或后续资料会如何发送。", replace: "普通资料发放换成作品加课程资料组合。", strengthen: "提醒家长关注孩子作品和老师观察反馈。", avoid: "避免作品做完但家长拿不到任何后续材料。" },
+          12: { add: "D+0 发送作品截图、活动照片或学生反馈摘要。", replace: "普通感谢话术换成作品回顾加下一步课程建议。", strengthen: "重点跟进对 AI、游戏、项目制有明显兴趣的家庭。", avoid: "避免超过两天才发作品，热度会下降。" },
+          13: { add: "复盘学生作品质量、工具问题、分组效率和作品展示效果。", replace: "普通复盘增加作品样本和学生观察记录。", strengthen: "把优秀作品、常见问题、时间分配更新到模块卡。", avoid: "避免只复盘到访和咨询数据，不复盘体验质量。" }
+        }
+      },
+      exam: {
+        label: "中考赛道版",
+        subtitle: "多元升学路径",
+        headline: "中考赛道版：给家庭清晰、专业、有方向的下一步",
+        body: "适合中考后、多元升学、BTEC、国际路径说明。重点是稳定情绪、讲清选择、建立专业信任，并把咨询承接做深。",
+        palette: ["国际化", "专业", "路径感", "奋斗感"],
+        overview: {
+          add: ["路径图、路径诊断表、升学时间规划表、下一步预约单。"],
+          replace: ["体验感表达换成专业路径表达，模块优先使用服务类承接。"],
+          strengthen: ["宣讲要讲清适合谁、不适合谁、下一步怎么走。"],
+          avoid: ["避免做得太活泼，也避免只讲学校优势而不解决家庭焦虑。"]
+        },
+        stageDiffs: {
+          0: { add: "明确本场主问题：中考后还有哪些选择，家庭下一步怎么判断。", replace: "普通活动目标换成路径说明和咨询承接目标。", strengthen: "提前定义适合人群、边界人群和重点咨询问题。", avoid: "避免主题太泛，只说国际化但没有路径。" },
+          1: { add: "增加升学路径图、路径对比表、时间规划表、咨询桌牌。", replace: "普通氛围物料换成专业、克制、国际化的视觉。", strengthen: "宣讲区和咨询区都要有路径信息，方便家长带着问题坐下。", avoid: "避免装饰太花，削弱专业感。" },
+          2: { add: "报名表增加年级、中考情况、目标方向、家庭关注点。", replace: "普通提醒海报换成中考后多元升学路径主题海报。", strengthen: "T-24h 前把家庭按关注方向粗分层，方便咨询承接。", avoid: "避免只锁名单，不提前了解家庭焦虑点。" },
+          3: { add: "入口海报突出多元升学路径和活动时间安排。", replace: "普通欢迎口径换成“今天会帮您把路径和下一步讲清楚”。", strengthen: "接待时尽量识别高焦虑家庭，提醒后续可咨询。", avoid: "避免入口过于轻松娱乐化。" },
+          4: { add: "签到记录增加关注路径标签，例如 BTEC、国际课程、海外方向。", replace: "普通贴纸换成姓名加咨询标签，方便老师识别。", strengthen: "贴纸和签到表都要帮助咨询老师快速了解家庭。", avoid: "避免当场追问太细，让家庭有压力。" },
+          5: { add: "休息区投屏路径图、学生支持体系、关键时间节点。", replace: "普通活动展示换成路径信息展示。", strengthen: "等待时可以发路径对比小卡，让家长先形成问题。", avoid: "避免休息区只放学校宣传图，没有解决问题的信息。" },
+          6: { add: "开场先稳定情绪，再说明今天会讲路径、参观环境、进入咨询。", replace: "普通开场换成“选择不止一条路，但要看匹配度”。", strengthen: "讲清提问和咨询安排，让家长知道问题会被接住。", avoid: "避免一开场就制造焦虑。" },
+          7: { add: "宣讲要有路径地图、适合人群、时间节点、常见误区。", replace: "普通价值宣讲换成路径判断说明。", strengthen: "讲清 BTEC、国际课程或多元升学路径的差异和下一步。", avoid: "避免只讲学校优势，不讲家庭如何选择。" },
+          8: { add: "未来楼参观重点讲学习支持、管理方式、学生成长环境。", replace: "普通参观换成“这个环境如何支持孩子重新进入学习状态”。", strengthen: "强调专业、秩序和陪伴，而不是单纯空间好看。", avoid: "避免参观讲太散，和升学路径无关。" },
+          9: { add: "模块优先使用服务类：路径诊断、资料解读、1v1 问题梳理。", replace: "普通体验模块可替换为客户服务承接模块。", strengthen: "每个家庭至少留下一个下一步动作：测评、面谈、资料补发或预约。", avoid: "避免在这个主题里强行做轻体验，冲淡升学主题。" },
+          10: { add: "咨询记录增加成绩情况、目标方向、预算、时间节点、孩子状态。", replace: "普通咨询换成路径诊断式咨询。", strengthen: "A 类家庭必须明确下一步预约时间和负责人。", avoid: "避免只回答问题，没有形成下一步。" },
+          11: { add: "离场资料增加路径对比表、时间规划表和下一步预约单。", replace: "普通资料包换成正式升学资料包。", strengthen: "离场时再次确认谁跟进、什么时候跟进。", avoid: "避免家庭听完就走，后续联系断掉。" },
+          12: { add: "D+1 重点跟进高意向家庭，补发个性化路径资料。", replace: "普通感谢信息换成路径建议和下一步提醒。", strengthen: "对焦虑家庭要更快、更具体，不只群发资料。", avoid: "避免跟进太慢，中考后窗口期很短。" },
+          13: { add: "复盘咨询问题分布、路径关注点、A 类家庭下一步推进情况。", replace: "普通复盘增加路径主题有效性判断。", strengthen: "把常见问题整理成下一场宣讲和咨询话术。", avoid: "避免只看到访率，不看家庭是否真的被承接。" }
+        }
+      }
+    };
+
     const stages = [
       {
         id: 0,
@@ -2000,7 +2359,62 @@
       `
     };
 
+    const diffLabels = {
+      add: "新增",
+      replace: "替换",
+      strengthen: "强化",
+      avoid: "避免"
+    };
+
+    const themeFromUrl = new URLSearchParams(window.location?.search || "").get("theme");
+    let activeTheme = themeFromUrl || localStorage.getItem("eventTheme") || "normal";
+    if (!themeVersions[activeTheme]) activeTheme = "normal";
+
     const renderList = (items) => `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+
+    const renderThemePanel = () => {
+      const theme = themeVersions[activeTheme];
+      return `
+        <article class="theme-brief">
+          <h3>${theme.headline}</h3>
+          <p>${theme.body}</p>
+          <div class="theme-palette">
+            ${theme.palette.map((item) => `<span>${item}</span>`).join("")}
+          </div>
+        </article>
+        <article class="theme-delta-overview">
+          <h3>${activeTheme === "normal" ? "普通版作为基线" : "相较普通版，本主题有什么不同"}</h3>
+          <div class="delta-grid">
+            ${Object.entries(diffLabels).map(([key, label]) => `
+              <div class="delta-card">
+                <strong>${label}</strong>
+                ${renderList(theme.overview[key])}
+              </div>
+            `).join("")}
+          </div>
+        </article>
+      `;
+    };
+
+    const renderStageThemeDiff = (stageId) => {
+      if (activeTheme === "normal") return "";
+      const theme = themeVersions[activeTheme];
+      const diff = theme.stageDiffs[stageId];
+      if (!diff) return "";
+      return `
+        <div class="stage-theme-diff">
+          <strong>本主题与普通版的不同 <span>${theme.label}</span></strong>
+          <div class="stage-theme-grid">
+            ${Object.entries(diffLabels).map(([key, label]) => `
+              <div class="theme-diff-item">
+                <b>${label}</b>
+                <p>${diff[key]}</p>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    };
 
     const renderModule = (module) => `
       <details class="module-detail" id="${module.id}" ${module.open ? "open" : ""}>
@@ -2107,19 +2521,15 @@
               <div class="notice backup"><strong>备用方案</strong><p>${stage.fallback}</p></div>
             </div>
             <div class="notice" style="margin-top: 12px;"><strong>记录在哪里</strong><p>${stage.records}</p></div>
+            ${renderStageThemeDiff(stage.id)}
           </div>
         </div>
         ${stage.custom && stage.customFull ? `<div class="stage-custom-full">${customSections[stage.custom]}</div>` : ""}
       </article>
     `;
 
-    document.querySelector("#stage-list").innerHTML = stages.map(renderStage).join("");
-    document.querySelector("#module-list").innerHTML = moduleDetails.map(renderModule).join("");
-
     const links = Array.from(document.querySelectorAll(".flow a"));
-    const sections = links
-      .map((link) => document.querySelector(link.getAttribute("href")))
-      .filter(Boolean);
+    let observer;
 
     const setActive = (id) => {
       links.forEach((link) => {
@@ -2127,18 +2537,58 @@
       });
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(visible.target.id);
-      },
-      { rootMargin: "-18% 0px -64% 0px", threshold: [0.1, 0.35, 0.6] }
-    );
+    const observeSections = () => {
+      if (observer) observer.disconnect();
+      const sections = links
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
 
-    sections.forEach((section) => observer.observe(section));
-    if (sections[0]) setActive(sections[0].id);
+      observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (visible) setActive(visible.target.id);
+        },
+        { rootMargin: "-18% 0px -64% 0px", threshold: [0.1, 0.35, 0.6] }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+      if (!document.querySelector(".flow a.active") && sections[0]) setActive(sections[0].id);
+    };
+
+    const renderPage = () => {
+      document.body.dataset.theme = activeTheme;
+      document.querySelector("#theme-panel").innerHTML = renderThemePanel();
+      document.querySelector("#stage-list").innerHTML = stages.map(renderStage).join("");
+      document.querySelector("#module-list").innerHTML = moduleDetails.map(renderModule).join("");
+      document.querySelectorAll("[data-theme-option]").forEach((button) => {
+        const selected = button.dataset.themeOption === activeTheme;
+        button.classList.toggle("is-active", selected);
+        button.setAttribute("aria-selected", String(selected));
+      });
+      observeSections();
+    };
+
+    renderPage();
+
+    document.querySelectorAll("[data-theme-option]").forEach((button) => {
+      button.addEventListener("click", () => {
+        activeTheme = button.dataset.themeOption;
+        localStorage.setItem("eventTheme", activeTheme);
+        if (window.history && window.location) {
+          const url = new URL(window.location.href);
+          url.searchParams.set("theme", activeTheme);
+          window.history.replaceState(null, "", url);
+        }
+        renderPage();
+        const current = document.querySelector(".flow a.active");
+        if (current) {
+          const target = document.querySelector(current.getAttribute("href"));
+          if (target) target.scrollIntoView({ block: "start" });
+        }
+      });
+    });
   </script>
 </body>
 </html>
